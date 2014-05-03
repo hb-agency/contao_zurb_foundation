@@ -1,0 +1,11 @@
+
+<!-- indexer::stop -->
+<aside class="<?php echo $this->class; ?>"<?php echo $this->cssID; ?>>
+  <?php if ($this->headline): ?>
+    <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+  <?php endif; ?>
+  
+  <?php echo $this->items; ?>
+  
+</aside>
+<!-- indexer::continue -->

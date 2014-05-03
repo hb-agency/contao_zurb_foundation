@@ -1,0 +1,9 @@
+.zf_container .multicolumnwizard table {
+    width: 100%;
+}
+.zf_container .multicolumnwizard .zf_module .tl_select {
+    width: 400px;
+}
+.zf_container .multicolumnwizard .zf_columns .tl_select {
+    width: 200px;
+}

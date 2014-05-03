@@ -1,0 +1,6 @@
+<nav class="<?php echo $this->class; ?> tab-bar">
+  <section class="left tab-bar-section"><?php echo $this->title; ?></section>
+  <section class="right-small">
+    <a class="right-off-canvas-toggle menu-icon" ><span></span></a>
+  </section>
+</nav>

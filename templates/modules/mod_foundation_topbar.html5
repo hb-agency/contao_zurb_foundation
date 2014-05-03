@@ -1,0 +1,27 @@
+
+<!-- indexer::stop -->
+<?php if($this->hasWrapper): ?>
+<div class="<?php echo $this->wrapperClass; ?>">
+<?php endif; ?>
+<nav class="<?php echo $this->class; ?> top-bar"<?php echo $this->cssID; echo $this->options; ?> data-topbar>
+  <a href="<?php echo $this->request; ?>#<?php echo $this->skipId; ?>" class="hide invisible"><?php echo $this->skipNavigation; ?></a>
+  <ul class="title-area">
+    <li class="name">
+    <?php if($this->foundation_nav_title): ?>
+      <h1><a href="#">My Site</a></h1>
+    <?php endif; ?>
+    </li>
+    <li class="toggle-topbar menu-icon">
+        <a href="#"><span><?php if($this->foundation_nav_menuicon): echo $this->foundation_nav_menuicon; endif; ?></span></a>
+    </li>
+  </ul>
+  <section class="top-bar-section">
+<?php echo $this->itemsLeft; ?>
+<?php echo $this->itemsRight; ?>
+  </section>
+  <a id="<?php echo $this->skipId; ?>" class="hide invisible">&nbsp;</a>
+</nav>
+<?php if($this->hasWrapper): ?>
+</div>
+<?php endif; ?>
+<!-- indexer::continue -->
