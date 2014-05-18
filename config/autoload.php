@@ -45,6 +45,7 @@ TemplateLoader::addFiles(array
 	'mod_breadcrumb_foundation' 	=> 'system/modules/zurb_foundation/templates/modules',
 	
 	//Nav templates
+    'nav_sidenav' 	                => 'system/modules/zurb_foundation/templates/navigation',
     'nav_foundationleft' 	        => 'system/modules/zurb_foundation/templates/navigation',
     'nav_foundationright' 	        => 'system/modules/zurb_foundation/templates/navigation',
     	

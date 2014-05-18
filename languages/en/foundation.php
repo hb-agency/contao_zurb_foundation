@@ -13,8 +13,19 @@
  
 $GLOBALS['TL_LANG']['FOUNDATION'] = array
 (
+    'SCSS' => array
+	(
+		'BREAKPOINT' => array
+		(
+			'small'		=> array('0em', '40em'),
+			'medium'	=> array('40.063em', '64em'),
+			'large'		=> array('64.063em', '90em'),
+			'xlarge'	=> array('90.063em', '120em'),
+			'xxlarge'	=> array('120.063em', '99999999em'),
+		),
+	),
     /**
-     * CSS Categories
+     * CSS Selector Categories
      */
     'CSS' => array
     (
