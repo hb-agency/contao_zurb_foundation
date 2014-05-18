@@ -56,8 +56,9 @@ array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['parseTemplate'][] = array('HBAgency\Hooks\FoundationParseTemplate', 'parseTemplate');
-$GLOBALS['TL_HOOKS']['getPageLayout'][] = array('HBAgency\Hooks\FoundationGetPageLayout', 'getPageLayout');
+$GLOBALS['TL_HOOKS']['parseTemplate'][] 	= array('HBAgency\Hooks\FoundationParseTemplate', 'parseTemplate');
+$GLOBALS['TL_HOOKS']['getPageLayout'][] 	= array('HBAgency\Hooks\FoundationGetPageLayout', 'getPageLayout');
+$GLOBALS['TL_HOOKS']['getCombinedFile'][] 	= array('HBAgency\Hooks\FoundationGetCombinedFile', 'getCombinedFile');
 
 
 /**
@@ -77,5 +78,34 @@ if (TL_MODE == 'BE')
             ? 'system/modules/zurb_foundation/assets/be_style.src.css'
             : 'system/modules/zurb_foundation/assets/be_style.css';
 }
+
+/**
+ * Foundation JS array for combiner
+ */
+$GLOBALS['FOUNDATION_JS'] = array
+(
+	'composer/vendor/components/modernizr/modernizr.js',
+	'composer/vendor/components/jquery/jquery.min.js',
+	'system/modules/zurb_foundation/assets/js/jquery.cookie.js',
+	'system/modules/zurb_foundation/assets/js/placeholder.js',
+	'system/modules/zurb_foundation/assets/js/fastclick.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.abide.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.accordion.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.alert.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.clearing.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.dropdown.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.equalizer.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.interchange.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.joyride.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.magellan.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.offcanvas.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.orbit.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.reveal.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.slider.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.tab.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.tooltip.js',
+	'composer/vendor/zurb/foundation/js/foundation/foundation.topbar.js',
+);
 
 

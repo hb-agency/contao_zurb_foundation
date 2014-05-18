@@ -41,50 +41,82 @@ class SCSS extends \Controller
     /**
      * Compile the SCSS
      * @param \Contao\ThemeModel
+     * @param boolean
      */
-    public static function compile(\Contao\ThemeModel $objTheme)
+    public static function compile(\Contao\ThemeModel $objTheme, $blnForce=false)
     {    
     	if(!self::confirmDependencies()) {
     		return;
     	}
     	
-    	$strKey = 'default';
+    	//Get file key
+    	$strKey = self::getKey($objTheme);
     	
-    	// !TODO - change the key based on MD5 hash the Theme configuration
+    	//Set file path
+    	$strCSSPath = 'assets/foundation/css/' . $strKey . '.css';
     	
-		//Gather up the SCSS files in the assets/foundation/scss folder
-		//This allows to work with different configs and edit defaults
-		//Without affecting the original source
-		$strBasePath = COMPOSER_DIR_RELATIVE . '/vendor/zurb/foundation/scss';
-		$strCopyPath = 'assets/foundation/scss/' . $strKey;
-		//Create new folder if not exists and clean it out
-		$objNew = new \Folder($strCopyPath);
-		$objNew->purge();
-		$objOriginal = new \Folder($strBasePath);
-		$objOriginal->copyTo($strCopyPath);
-				
-		//Apply the config
-		self::applyConfig($objTheme, $strCopyPath);
+    	//Compile the scss
+    	if(!file_exists(TL_ROOT . '/' . $strCSSPath) || $blnForce)
+    	{
+			//Gather up the SCSS files in the assets/foundation/scss folder
+			//This allows to work with different configs and edit defaults
+			//Without affecting the original source
+			$strBasePath = COMPOSER_DIR_RELATIVE . '/vendor/zurb/foundation/scss';
+			$strCopyPath = 'assets/foundation/scss/' . $strKey;
+			
+			//Create new folder if not exists and clean it out
+			$objNew = new \Folder($strCopyPath);
+			$objNew->purge();
+			$objOriginal = new \Folder($strBasePath);
+			$objOriginal->copyTo($strCopyPath);
+					
+			//Apply the config
+			self::applyConfig($objTheme, $strCopyPath);
+			
+			$strFoundationCSS = '';
+			$strNormalizeCSS = '';
+			
+			//Create the SCSS compiler
+			$objCompiler = new \scssc();
+			$objCompiler->setImportPaths(TL_ROOT . '/' . $strCopyPath);
+			$objCompiler->setFormatter((\Config::get('debugMode') ? 'scss_formatter' : 'scss_formatter_compressed'));
+			$strFoundationContent = file_get_contents(TL_ROOT . '/' . $strCopyPath . '/foundation.scss');
+			$strNormalizeContent = file_get_contents(TL_ROOT . '/' . $strCopyPath . '/normalize.scss');
+			
+			//Compile
+			$strFoundationCSS 	= $objCompiler->compile($strFoundationContent);
+			$strNormalizeCSS	= $objCompiler->compile($strNormalizeContent);
+			
+			//Write to single CSS file cache
+			$objFile = new \File($strCSSPath);
+			$objFile->write($strNormalizeCSS . "\n" . $strFoundationCSS);
+			$objFile->close();
+		}
 		
-		$strFoundationCSS = '';
-		$strNormalizeCSS = '';
-		
-		//Create the SCSS compiler
-		$objCompiler = new \scssc();
-		$objCompiler->setImportPaths(TL_ROOT . '/' . $strCopyPath);
-		$objCompiler->setFormatter((\Config::get('debugMode') ? 'scss_formatter' : 'scss_formatter_compressed'));
-		$strFoundationContent = file_get_contents(TL_ROOT . '/' . $strCopyPath . '/foundation.scss');
-		$strNormalizeContent = file_get_contents(TL_ROOT . '/' . $strCopyPath . '/normalize.scss');
-		
-		//Compile
-		$strFoundationCSS 	= $objCompiler->compile($strFoundationContent);
-		$strNormalizeCSS	= $objCompiler->compile($strNormalizeContent);
-		
-		//Write to single CSS file cache
-		$strCSSPath = 'assets/foundation/css/' . $strKey . '.css';
-		$objFile = new \File($strCSSPath);
-		$objFile->write($strNormalizeCSS . "\n" . $strFoundationCSS);
-		$objFile->close();		
+		return $strCSSPath;	
+    }
+    
+    /**
+     * Get the file key
+     * // !TODO - Add a Hook to change the key? This could get complex as we add more features
+     * @param \Contao\ThemeModel
+     * @return string
+     */
+    protected static function getKey($objConfig)
+    {
+    	$strKey = '';
+    	
+    	//Apply configs
+    	$arrMediumCustom	= deserialize($objConfig->foundation_break_medium);
+    	$strKey .= 'm-' . $arrMediumCustom['value'] . $arrMediumCustom['unit'];
+    	$arrLargeCustom		= deserialize($objConfig->foundation_break_large);
+    	$strKey .= 'l-' . $arrLargeCustom['value'] . $arrLargeCustom['unit'];
+    	$arrXLargeCustom	= deserialize($objConfig->foundation_break_xlarge);
+    	$strKey .= 'xl-' . $arrXLargeCustom['value'] . $arrXLargeCustom['unit'];
+    	$arrXXLargeCustom	= deserialize($objConfig->foundation_break_xxlarge);
+    	$strKey .= 'xxl-' . $arrXXLargeCustom['value'] . $arrXXLargeCustom['unit'];
+    	
+    	return $strKey=='m-l-xl-xxl-' ? 'default' : substr(md5($strKey), 0, 12);
     }
     
     /**
@@ -99,7 +131,7 @@ class SCSS extends \Controller
     
     /**
      * Change the Foundation breakpoints
-     * // !TODO - simplify this with another method, and also use custom rem-base when that gets implemented
+     * // !TODO - simplify this with another method, and also use custom base font size when that gets implemented
      * @param \Contao\ThemeModel
      * @param string
      */

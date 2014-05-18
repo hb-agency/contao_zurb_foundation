@@ -187,10 +187,10 @@ class FoundationParseTemplate extends \Controller
             $arrParsedGridClasses[] = $strSize . '-offset-' . $arrSettings['offset'];
         }
         if(!empty($arrSettings['push'])) {
-            $arrParsedGridClasses[] = $strSize . '-push-' . $arrSettings['push'];
+            $arrParsedGridClasses[] = $strSize . '-push-' . $arrSettings['offset'];
         }
         if(!empty($arrSettings['pull'])) {
-            $arrParsedGridClasses[] = $strSize . '-pull-' . $arrSettings['pull'];
+            $arrParsedGridClasses[] = $strSize . '-pull-' . $arrSettings['offset'];
         }
         if(!empty($arrSettings['centered'])) {
             $arrParsedGridClasses[] = $strSize . '-' . $arrSettings['centered'];

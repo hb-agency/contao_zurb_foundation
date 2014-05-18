@@ -18,6 +18,10 @@
         "contao-legacy/haste":"4.0.*",
         "menatwork/contao-multicolumnwizard": "3.2.*",
         "zurb/foundation": ">=5.2.*,<5.3-dev",
+        "jalle19/php-yui-compressor": ">=dev-master",
+        "tedivm/jshrink": ">=1.0.0,<1.1-dev",
+        "components/jquery": ">=2.1.0,<2.2-dev",
+        "components/modernizr": ">=2.6.2,<2.7-dev"
     },
     "autoload": {
         "psr-0": {

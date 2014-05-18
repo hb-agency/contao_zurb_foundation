@@ -16,6 +16,7 @@
  */
 namespace HBAgency\Hooks;
 
+use HBAgency\Foundation\SCSS;
 
 
 /**
@@ -36,29 +37,23 @@ class FoundationGetPageLayout extends \Controller
 	 */
 	public function getPageLayout($objPage, &$objLayout, $objPageRegular)
 	{
+		//Load up our Required Foundation JS into a Combiner
+		$objCombiner = new \Combiner();
+		
+		foreach($GLOBALS['FOUNDATION_JS'] as $strFile)
+		{
+			$objCombiner->add($strFile);
+		}
+		
 	    array_insert($GLOBALS['TL_JAVASCRIPT'], 0, array
         (
-        	'system/modules/zurb_foundation/assets/foundation/'. FOUNDATION. '/js/vendor/modernizr.js'
+        	$objCombiner->getCombinedFile()
         ));
-	    
-	    array_insert($GLOBALS['TL_JAVASCRIPT'], 1, array
+		
+		//Load in Foundation CSS by Theme
+		array_insert($GLOBALS['TL_CSS'], 0, array
         (
-        	'system/modules/zurb_foundation/assets/foundation/'. FOUNDATION. '/js/vendor/jquery.js'
-        ));
-        
-        array_insert($GLOBALS['TL_JAVASCRIPT'], 2, array
-        (
-        	'system/modules/zurb_foundation/assets/foundation/'. FOUNDATION. '/js/foundation.min.js'
-        ));
-        
-        array_insert($GLOBALS['TL_CSS'], 0, array
-        (
-        	'system/modules/zurb_foundation/assets/foundation/'. FOUNDATION . '/css/normalize.css'
-        ));
-        
-        array_insert($GLOBALS['TL_CSS'], 1, array
-        (
-        	'system/modules/zurb_foundation/assets/foundation/'. FOUNDATION . '/css/foundation.min.css'
+        	SCSS::compile($objLayout->getRelated('pid'))
         ));
         
         $objLayout->script .= "\n" . "<script>(function($) { $(document).foundation(); })(jQuery);</script>";
