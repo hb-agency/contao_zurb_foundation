@@ -19,7 +19,9 @@ $GLOBALS['TL_LANG']['CTE']['foundation_rowstart']               = array('Foundat
 $GLOBALS['TL_LANG']['CTE']['foundation_rowstop']                = array('Foundation Row STOP', 'Add in a wrapper for a foundation row.');
 $GLOBALS['TL_LANG']['CTE']['foundation_genericstart']           = array('General Wrapper START', 'Add in a wrapper for foundation elements.');
 $GLOBALS['TL_LANG']['CTE']['foundation_genericstop']            = array('General Wrapper STOP', 'Add in a wrapper for foundation elements.');
- 
+$GLOBALS['TL_LANG']['CTE']['foundation_orbitstart']           	= array('Orbit Slider START', 'Add in an Orbit responsive slider.');
+$GLOBALS['TL_LANG']['CTE']['foundation_orbitstop']            	= array('Orbit Slider STOP', 'Close out an Orbit responsive slider.');
+  
  
 /**
  * Foundation

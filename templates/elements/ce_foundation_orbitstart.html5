@@ -1,0 +1,10 @@
+<?php /* Customize this by adding the following syntax:
+	   * 
+	   * data-options="animation:fade;"
+	   * 
+	   * See here for all available options:
+	   * http://foundation.zurb.com/docs/components/orbit.html#advanced
+	   *
+	   */
+?>
+<ul class="<?php echo $this->class; ?>" data-orbit<?php echo $this->cssID; ?>>

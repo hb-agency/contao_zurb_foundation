@@ -34,10 +34,12 @@ foreach($GLOBALS['TL_DCA']['tl_content']['palettes'] as $element => $strPalette)
  * CE Palettes
  */
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_sidenav'] = '{type_legend},type,headline;{foundation_legend},foundation_pages;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_rowstart'] = '{type_legend},type;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{foundation_legend:hide},foundation_visibility,foundation_block_grid,foundation_equalizer;';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_rowstop'] = '{type_legend},type;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_genericstart'] = '{type_legend},type;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{foundation_legend:hide},foundation_visibility,foundation_grid,foundation_block_grid,foundation_equalize;';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_genericstop'] = '{type_legend},type;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_rowstart'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{foundation_legend:hide},foundation_visibility,foundation_block_grid,foundation_equalizer;';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_rowstop'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_genericstart'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{foundation_legend:hide},foundation_visibility,foundation_grid,foundation_block_grid,foundation_equalize;';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_genericstop'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_orbitstart'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{foundation_legend:hide},foundation_visibility,foundation_grid,foundation_block_grid,foundation_equalize;';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_orbitstop'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 /**
  * Subpalettes
@@ -48,7 +50,6 @@ $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_block_grid'] = 'foun
 
 /**
  * Fields
- *
  */
 $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_equalizer'] = array
 (
