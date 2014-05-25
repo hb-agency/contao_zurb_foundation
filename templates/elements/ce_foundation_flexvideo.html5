@@ -1,0 +1,11 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+	<!-- indexer::stop -->
+    <div class="flex-video widescreen<?php echo $this->classes; ?>">
+    	<iframe<?php echo $this->size; ?> src="<?php echo $this->foundation_flexvideo; ?>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen>
+    </div>
+	<!-- indexer::continue -->
+
+<?php $this->endblock(); ?>

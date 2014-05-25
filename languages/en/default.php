@@ -21,6 +21,7 @@ $GLOBALS['TL_LANG']['CTE']['foundation_genericstart']           = array('General
 $GLOBALS['TL_LANG']['CTE']['foundation_genericstop']            = array('General Wrapper STOP', 'Add in a wrapper for foundation elements.');
 $GLOBALS['TL_LANG']['CTE']['foundation_orbitstart']           	= array('Orbit Slider START', 'Add in an Orbit responsive slider.');
 $GLOBALS['TL_LANG']['CTE']['foundation_orbitstop']            	= array('Orbit Slider STOP', 'Close out an Orbit responsive slider.');
+$GLOBALS['TL_LANG']['CTE']['foundation_flexvideo']            	= array('Flex Video', 'Add a responsive video.');
   
  
 /**

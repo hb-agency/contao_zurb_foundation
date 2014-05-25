@@ -40,6 +40,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_genericstart'] = '{type
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_genericstop'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_orbitstart'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{foundation_legend:hide},foundation_visibility,foundation_grid,foundation_block_grid,foundation_equalize;';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_orbitstop'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_flexvideo'] = '{type_legend},type,headline;{source_legend},foundation_flexvideo;{player_legend},playerSize;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 /**
  * Subpalettes
@@ -51,6 +52,15 @@ $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_block_grid'] = 'foun
 /**
  * Fields
  */
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_flexvideo'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_flexvideo'],
+	'exclude'       	      => true,
+	'inputType'     	      => 'text',
+	'eval'                    => array('rgxp' => 'url', 'tl_class'=> 'clr long'),
+	'sql'                     => "varchar(255) NOT NULL default ''",
+);
+
 $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_equalizer'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_equalizer'],

@@ -26,6 +26,9 @@ $GLOBALS['TL_CTE']['foundation'] = array(
 	'foundation_rowstop'        => 'HBAgency\ContentElement\Foundation\RowStop',
 	'foundation_genericstart'   => 'HBAgency\ContentElement\Foundation\GenericStart',
 	'foundation_genericstop'    => 'HBAgency\ContentElement\Foundation\GenericStop',
+	'foundation_orbitstart'   	=> 'HBAgency\ContentElement\Foundation\OrbitStart',
+	'foundation_orbitstop'    	=> 'HBAgency\ContentElement\Foundation\OrbitStop',
+	'foundation_flexvideo'    	=> 'HBAgency\ContentElement\Foundation\FlexVideo',
 );
 
 /**
@@ -47,27 +50,27 @@ array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
 
 
 /**
- * Form fields
+ * Form fields !TODO
  */
-//$GLOBALS['TL_FFL']['formcolstart'] = 'Subcolumns\\FormColStart';
-//$GLOBALS['TL_FFL']['formcolpart'] = 'Subcolumns\\FormColPart';
-//$GLOBALS['TL_FFL']['formcolend'] = 'Subcolumns\\FormColEnd';
+
 
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['parseTemplate'][] 	= array('HBAgency\Hooks\FoundationParseTemplate', 'parseTemplate');
-$GLOBALS['TL_HOOKS']['getPageLayout'][] 	= array('HBAgency\Hooks\FoundationGetPageLayout', 'getPageLayout');
-$GLOBALS['TL_HOOKS']['getCombinedFile'][] 	= array('HBAgency\Hooks\FoundationGetCombinedFile', 'getCombinedFile');
+$GLOBALS['TL_HOOKS']['parseTemplate'][] 		= array('HBAgency\Hooks\FoundationParseTemplate', 'parseTemplate');
+$GLOBALS['TL_HOOKS']['getPageLayout'][] 		= array('HBAgency\Hooks\FoundationGetPageLayout', 'getPageLayout');
+$GLOBALS['TL_HOOKS']['getCombinedFile'][] 		= array('HBAgency\Hooks\FoundationGetCombinedFile', 'getCombinedFile');
 
 
 /**
  * Wrappers for Elements
  */
-$GLOBALS['TL_WRAPPERS']['start'][] = 'foundation_rowstart';
-$GLOBALS['TL_WRAPPERS']['start'][] = 'foundation_genericstart';
-$GLOBALS['TL_WRAPPERS']['stop'][] = 'foundation_rowstop';
-$GLOBALS['TL_WRAPPERS']['stop'][] = 'foundation_genericstop';
+$GLOBALS['TL_WRAPPERS']['start'][] 	= 'foundation_rowstart';
+$GLOBALS['TL_WRAPPERS']['start'][] 	= 'foundation_genericstart';
+$GLOBALS['TL_WRAPPERS']['start'][] 	= 'foundation_orbitstart';
+$GLOBALS['TL_WRAPPERS']['stop'][] 	= 'foundation_rowstop';
+$GLOBALS['TL_WRAPPERS']['stop'][] 	= 'foundation_genericstop';
+$GLOBALS['TL_WRAPPERS']['stop'][] 	= 'foundation_orbitstop';
 
 /**
  * Backend styles

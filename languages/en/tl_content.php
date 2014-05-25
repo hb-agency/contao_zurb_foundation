@@ -27,8 +27,9 @@ $GLOBALS['TL_LANG']['tl_content']['foundation_grid_large']              = array(
 $GLOBALS['TL_LANG']['tl_content']['foundation_block_grid']              = array('Foundation block grid', 'Check to change the block grid settings of this element at various size screen widths for responsive sites. Foundation is based on a 12-column grid by default.');
 $GLOBALS['TL_LANG']['tl_content']['foundation_block_grid_settings']     = array('Block grid column settings', 'Check to change the block grid settings of this element at various size screen widths for responsive sites. Foundation is based on a 12-column grid by default.');
 
+$GLOBALS['TL_LANG']['tl_content']['foundation_flexvideo']               = array('Video iframe source', 'Enter in the iframe source for this video. It can be a Youtube (www.youtube.com/embed/xxxxxxxxx) or Vimeo (player.vimeo.com/video/xxxxxxxxx) URL.');   
 $GLOBALS['TL_LANG']['tl_content']['foundation_equalize']                = array('Equalize height', 'If this element is the child of a row, checking this will force the element to equalize its height with other elements in the row.');            
-$GLOBALS['TL_LANG']['tl_content']['foundation_equalizer']               = array('Equalize height of child elements', 'Checking this will allow child elements to equalize their height with other elements in the row.');            
+$GLOBALS['TL_LANG']['tl_content']['foundation_equalizer']               = array('Equalize height of child elements', 'Checking this will allow child elements to equalize their height with other elements in the row.');     
 
 /**
  * Reference
@@ -42,6 +43,8 @@ $GLOBALS['TL_LANG']['tl_content']['end']                 = 'End';
 $GLOBALS['TL_LANG']['tl_content']['small']               = 'Small cols';
 $GLOBALS['TL_LANG']['tl_content']['medium']              = 'Medium cols';
 $GLOBALS['TL_LANG']['tl_content']['large']               = 'Large cols';
+$GLOBALS['TL_LANG']['tl_content']['slide']               = 'Slide';
+$GLOBALS['TL_LANG']['tl_content']['fade']                = 'Fade';
 $GLOBALS['TL_LANG']['tl_content']['foundation']['start'] = 'Start';
 $GLOBALS['TL_LANG']['tl_content']['foundation']['stop']  = 'End';
 
