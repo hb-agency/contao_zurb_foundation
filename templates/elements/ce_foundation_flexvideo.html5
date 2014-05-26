@@ -4,7 +4,7 @@
 
 	<!-- indexer::stop -->
     <div class="flex-video widescreen<?php echo $this->classes; ?>">
-    	<iframe<?php echo $this->size; ?> src="<?php echo $this->foundation_flexvideo; ?>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen>
+    	<iframe<?php echo $this->size; ?> src="<?php echo $this->foundation_flexvideo; ?>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>
     </div>
 	<!-- indexer::continue -->
 
