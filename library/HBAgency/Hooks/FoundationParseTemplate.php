@@ -52,6 +52,9 @@ class FoundationParseTemplate extends \Controller
             {
                 $objTemplate->cssID .= " $strEqualize";
             }
+            
+            //Check whether we have orbit slides
+            $objTemplate->isOrbitSlide = $this->checkForOrbitSlides($objTemplate);
         }
         
 		return $objTemplate;
@@ -175,7 +178,7 @@ class FoundationParseTemplate extends \Controller
 	 * @param array
 	 * @return string
 	 */
-	protected function parseGridSettings($strSize='small', $arrSettings=array())
+    protected function parseGridSettings($strSize='small', $arrSettings=array())
     {
         $arrParsedGridClasses = array();
         
@@ -200,5 +203,46 @@ class FoundationParseTemplate extends \Controller
         }
         
         return $arrParsedGridClasses;
-    }	
+    }
+    
+    /**
+	 * Check if this template should be designated as an Orbit Slide
+	 * @param Contao\Template
+	 * @return boolean
+	 */
+	protected function checkForOrbitSlides($objTemplate)
+    {
+    	$blnIsOrbitSlide = false;
+    	
+    	//Check for content element
+    	if(substr($objTemplate->getName(), 0, 3) == 'ce_')
+    	{
+	    	$arrCheck = \Database::getInstance()->prepare("SELECT sorting, type FROM tl_content
+	    												   WHERE pid=? AND ptable=?
+	    												   AND (type='foundation_orbitstart' 
+	    												   OR type='foundation_orbitstop')
+	    												   ORDER BY sorting ASC")
+	    												   ->execute($objTemplate->pid, $objTemplate->ptable)
+	    												   ->fetchAllAssoc();
+	    												   
+	    	if(!empty($arrCheck))
+	    	{
+	    		for($i=0; $i < count($arrCheck); $i++)
+	    		{
+	    			$intNext = $i < count($arrCheck) ? $i+1 : $i;
+		    		if( $arrCheck[$i]['type']=='foundation_orbitstart' && 
+		    			$arrCheck[$intNext]['type']=='foundation_orbitstop' &&
+		    			$arrCheck[$i]['sorting'] < $objTemplate->sorting &&
+		    			$arrCheck[$intNext]['sorting'] > $objTemplate->sorting )
+		    		{
+			    		$blnIsOrbitSlide = true;
+		    		}
+	    		}
+	    	}
+    	}
+    	
+    	return $blnIsOrbitSlide;
+    }
+
+    
 }
