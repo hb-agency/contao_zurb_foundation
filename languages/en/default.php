@@ -22,7 +22,8 @@ $GLOBALS['TL_LANG']['CTE']['foundation_genericstop']            = array('General
 $GLOBALS['TL_LANG']['CTE']['foundation_orbitstart']           	= array('Orbit Slider START', 'Add in an Orbit responsive slider.');
 $GLOBALS['TL_LANG']['CTE']['foundation_orbitstop']            	= array('Orbit Slider STOP', 'Close out an Orbit responsive slider.');
 $GLOBALS['TL_LANG']['CTE']['foundation_flexvideo']            	= array('Flex Video', 'Add a responsive video.');
-  
+$GLOBALS['TL_LANG']['CTE']['foundation_interchangeimage']       = array('Interchange image', 'Add an image where you can specify different sizes for different breakpoints.');
+
  
 /**
  * Foundation
