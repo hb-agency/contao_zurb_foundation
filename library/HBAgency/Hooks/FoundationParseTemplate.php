@@ -192,8 +192,8 @@ class FoundationParseTemplate extends \Controller
         if(!empty($arrSettings['pull'])) {
             $arrParsedGridClasses[] = $strSize . '-pull-' . $arrSettings['offset'];
         }
-        if(!empty($arrSettings['centered'])) {
-            $arrParsedGridClasses[] = $strSize . '-' . $arrSettings['centered'];
+        if(!empty($arrSettings['centering'])) {
+            $arrParsedGridClasses[] = $strSize . '-' . $arrSettings['centering'];
         }
         if(!empty($arrSettings['end'])) {
             $arrParsedGridClasses[] = 'end';
