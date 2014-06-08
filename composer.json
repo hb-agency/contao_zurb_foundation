@@ -36,9 +36,8 @@
     "extra": {
         "contao": {
             "sources": {
-                "system/modules/zurb_foundation": "system/modules/zurb_foundation"
-            },
-            "migrated": "done"
+                "": "system/modules/zurb_foundation"
+            }
         }
     },
     "minimum-stability": "dev",
