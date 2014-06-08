@@ -1,23 +1,26 @@
 {
-    "name":"hb-agency/zurb_foundation",
-    "description":"A set of tools for Contao Open Source CMS to utilize the Foundation responsive framework",
-    "keywords":["zurb", "foundation"],
-    "type":"contao-module",
-    "license":"LGPL",
-    "authors":[
-        {
-            "name":"HB Agency",
-            "homepage":"http://www.hbagency.com"
-        },
+    "name": "hb-agency/zurb_foundation",
+    "description": "A set of tools for Contao Open Source CMS to utilize the Foundation responsive framework",
+    "keywords": [
+    	"zurb", 
+    	"foundation"
     ],
-    "require":{
-        "php":">=5.3.2",
-        "contao/core":">=3.3.0,<4.0.0-dev",
-        "contao-community-alliance/composer-installer":"*",
-        "contao-legacy/namespaceclassloader":">=1.0.1",
-        "contao-legacy/haste":"4.0.*",
+    "type": "contao-module",
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "HB Agency",
+            "homepage": "http://www.hbagency.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "contao/core": ">=3.3.0,<4.0.0-dev",
+        "contao-community-alliance/composer-installer": "*",
+        "contao-legacy/namespaceclassloader": ">=1.0.1",
+        "contao-legacy/haste": "4.0.*",
         "menatwork/contao-multicolumnwizard": "3.2.*",
-        "zurb/foundation": ">=5.2.*,<5.3-dev",
+        "zurb/foundation": ">=5.2.1,<5.3-dev",
         "jalle19/php-yui-compressor": ">=dev-master",
         "tedivm/jshrink": ">=1.0.0,<1.1-dev",
         "components/jquery": ">=2.1.0,<2.2-dev",
@@ -28,13 +31,19 @@
             "HBAgency\\": [
                 "system/modules/zurb_foundation/library/",
             ]
-        },
+        }
     },
-    "extra":{
+    "extra": {
         "contao": {
-            "sources":{
+            "sources": {
                 "system/modules/zurb_foundation": "system/modules/zurb_foundation",
             },
-        },
+            "migrated": "done"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist"
     }
 }
