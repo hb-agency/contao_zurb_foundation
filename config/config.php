@@ -21,15 +21,15 @@ define('FOUNDATION', '5.2.2');
  */
 
 $GLOBALS['TL_CTE']['foundation'] = array(
-	'foundation_sidenav'            => 'HBAgency\ContentElement\Foundation\SideNav',
-	'foundation_rowstart'           => 'HBAgency\ContentElement\Foundation\RowStart',
-	'foundation_rowstop'            => 'HBAgency\ContentElement\Foundation\RowStop',
-	'foundation_genericstart'       => 'HBAgency\ContentElement\Foundation\GenericStart',
-	'foundation_genericstop'        => 'HBAgency\ContentElement\Foundation\GenericStop',
-	'foundation_orbitstart'   	    => 'HBAgency\ContentElement\Foundation\OrbitStart',
-	'foundation_orbitstop'    	    => 'HBAgency\ContentElement\Foundation\OrbitStop',
-	'foundation_flexvideo'    	    => 'HBAgency\ContentElement\Foundation\FlexVideo',
-	'foundation_interchangeimage'   => 'HBAgency\ContentElement\Foundation\InterchangeImage',
+	'foundation_sidenav'                  => 'HBAgency\ContentElement\Foundation\SideNav',
+	'foundation_rowstart'                 => 'HBAgency\ContentElement\Foundation\RowStart',
+	'foundation_rowstop'                  => 'HBAgency\ContentElement\Foundation\RowStop',
+	'foundation_genericstart'             => 'HBAgency\ContentElement\Foundation\GenericStart',
+	'foundation_genericstop'              => 'HBAgency\ContentElement\Foundation\GenericStop',
+	'foundation_orbitstart'   	          => 'HBAgency\ContentElement\Foundation\OrbitStart',
+	'foundation_orbitstop'    	          => 'HBAgency\ContentElement\Foundation\OrbitStop',
+	'foundation_flexvideo'    	          => 'HBAgency\ContentElement\Foundation\FlexVideo',
+	'foundation_interchangeimagesingle'   => 'HBAgency\ContentElement\Foundation\InterchangeImageSingle',
 );
 
 /**
