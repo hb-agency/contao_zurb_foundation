@@ -29,7 +29,7 @@ $GLOBALS['TL_CTE']['foundation'] = array(
 	'foundation_orbitstart'   	          => 'HBAgency\ContentElement\Foundation\OrbitStart',
 	'foundation_orbitstop'    	          => 'HBAgency\ContentElement\Foundation\OrbitStop',
 	'foundation_flexvideo'    	          => 'HBAgency\ContentElement\Foundation\FlexVideo',
-	'foundation_interchangeimagesingle'   => 'HBAgency\ContentElement\Foundation\InterchangeImageSingle',
+	'foundation_interchangesingle'        => 'HBAgency\ContentElement\Foundation\InterchangeImageSingle',
 );
 
 /**
