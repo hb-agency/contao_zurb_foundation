@@ -47,7 +47,7 @@ class FoundationGetPageLayout extends \Controller
 		
 	    array_insert($GLOBALS['TL_JAVASCRIPT'], 0, array
         (
-        	$objCombiner->getCombinedFile()
+        	$objCombiner->getCombinedFile() . "|static"
         ));
 		
 		//Load in Foundation CSS by Theme
