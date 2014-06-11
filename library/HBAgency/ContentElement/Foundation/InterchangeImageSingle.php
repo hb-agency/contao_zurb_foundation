@@ -61,6 +61,12 @@ class InterchangeImageSingle extends Zurb_Foundation
 		}
 
 		$this->singleSRC = $objFile->path;
+		
+        if(TL_MODE=='BE')
+		{
+    		$this->strTemplate = 'ce_image';
+		}
+		
 		return parent::generate();
 	}
 
