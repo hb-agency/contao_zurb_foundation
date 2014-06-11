@@ -53,7 +53,7 @@ class FoundationGetPageLayout extends \Controller
 		//Load in Foundation CSS by Theme
 		array_insert($GLOBALS['TL_CSS'], 0, array
         (
-        	SCSS::compile($objLayout->getRelated('pid'))
+        	SCSS::compile($objLayout->getRelated('pid')) . "|screen|static"
         ));
         
         $objLayout->script .= "\n" . "<script>(function($) { $(document).foundation(); })(jQuery);</script>";
