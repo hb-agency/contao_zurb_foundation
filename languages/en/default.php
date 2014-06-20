@@ -23,6 +23,7 @@ $GLOBALS['TL_LANG']['CTE']['foundation_orbitstart']           	= array('Orbit Sl
 $GLOBALS['TL_LANG']['CTE']['foundation_orbitstop']            	= array('Orbit Slider STOP', 'Close out an Orbit responsive slider.');
 $GLOBALS['TL_LANG']['CTE']['foundation_flexvideo']            	= array('Flex Video', 'Add a responsive video.');
 $GLOBALS['TL_LANG']['CTE']['foundation_interchangesingle']      = array('Interchange image (single)', 'Add a single image where you can specify different sizes for different breakpoints.');
+$GLOBALS['TL_LANG']['CTE']['foundation_revealmodalwindow']      = array('Reveal Modal Window', 'Modal dialogs, or pop-up windows, are handy for prototyping and production.');
 
  
 /**

@@ -11,6 +11,7 @@
  */
  
 \System::loadLanguageFile('foundation');
+\System::loadLanguageFile('tl_content');
 
 /**
  * Selector Palettes
@@ -23,6 +24,9 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'foundation_nav_
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'foundation_nav_includeRight';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'foundation_nav_defineRootLeft';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'foundation_nav_defineRootRight';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'foundation_incmodule';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'foundation_incarticle';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'useImage';
 
 /**
  * Palettes
@@ -47,6 +51,11 @@ foreach($GLOBALS['TL_DCA']['tl_module']['palettes'] as $element => $strPalette)
 }
 
 /**
+ * Don't loop in this modules
+ */
+$GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_revealmodalwindow'] = '{title_legend},name,headline,type,foundation_button;{link_legend},url,target,linkTitle,embed,titleText;{imglink_legend:hide},useImage;{include_legend},foundation_incarticle,foundation_incmodule;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop;{foundation_legend:hide},foundation_visibility,foundation_grid,foundation_block_grid,foundation_equalize;';
+
+/**
  * Subpalettes
  */
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['foundation_visibility'] = 'foundation_visibility_show,foundation_visibility_hide,foundation_visibility_orientation,foundation_visibility_touch';
@@ -57,10 +66,40 @@ $GLOBALS['TL_DCA']['tl_module']['subpalettes']['foundation_nav_includeLeft'] = '
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['foundation_nav_includeRight'] = 'foundation_nav_levelOffsetRight,foundation_nav_showLevelRight,foundation_nav_hardLimitRight,foundation_nav_showProtectedRight,foundation_nav_defineRootRight,foundation_nav_navigationTplRight';
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['foundation_nav_defineRootLeft'] = 'foundation_nav_rootPageLeft';
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['foundation_nav_defineRootRight'] = 'foundation_nav_rootPageRight';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['foundation_incarticle'] = 'cteAlias';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['foundation_incmodule'] = 'foundation_modules';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['useImage'] = 'singleSRC,alt,title,size,caption';
 
 /**
  * Selector Fields
  */
+$GLOBALS['TL_DCA']['tl_module']['fields']['useImage'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['useImage'],
+		'exclude'       	      => true,
+		'inputType'     	      => 'checkbox',
+		'eval'                    => array('submitOnChange'=>true),
+		'sql'                     => "char(1) NOT NULL default ''",
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['foundation_incmodule'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_module']['foundation_incmodule'],
+		'exclude'       	      => true,
+		'inputType'     	      => 'checkbox',
+		'eval'                    => array('submitOnChange'=>true),
+		'sql'                     => "char(1) NOT NULL default ''",
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['foundation_incarticle'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_module']['foundation_incarticle'],
+		'exclude'       	      => true,
+		'inputType'     	      => 'checkbox',
+		'eval'                    => array('submitOnChange'=>true),
+		'sql'                     => "char(1) NOT NULL default ''",
+);
+
 $GLOBALS['TL_DCA']['tl_module']['fields']['foundation_visibility'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['foundation_visibility'],
@@ -145,6 +184,93 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['foundation_nav_defineRootRight'] = ar
 /**
  * Fields
  */
+$GLOBALS['TL_DCA']['tl_module']['fields']['caption'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['caption'],
+		'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'text',
+		'eval'                    => array('maxlength'=>255, 'allowHtml'=>true, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['title'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['title'],
+		'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'text',
+		'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['alt'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['alt'],
+		'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'text',
+		'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['target'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['MSC']['target'],
+		'exclude'                 => true,
+		'inputType'               => 'checkbox',
+		'eval'                    => array('tl_class'=>'w50 m12'),
+		'sql'                     => "char(1) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['url'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['MSC']['url'],
+		'exclude'                 => true,
+		'inputType'               => 'text',
+		'eval'                    => array('mandatory'=>true, 'rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['linkTitle'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['linkTitle'],
+		'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'text',
+		'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['embed'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['embed'],
+		'exclude'                 => true,
+		'inputType'               => 'text',
+		'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['titleText'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['titleText'],
+		'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'text',
+		'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['foundation_button'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_module']['foundation_button'],
+		'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'text',
+		'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
+); 
+
 $GLOBALS['TL_DCA']['tl_module']['fields']['foundation_offcanvas_side'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['foundation_offcanvas_side'],
@@ -644,3 +770,23 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['foundation_modules'] = array
     'sql'               => "blob NULL"
 );
 
+$GLOBALS['TL_DCA']['tl_module']['fields']['cteAlias'] = array
+(
+		'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['cteAlias'],
+		'exclude'       => true,
+		'inputType'     => 'multiColumnWizard',
+		'eval'			=> array(
+				'tl_class'      => 'zf_container clr',
+				'columnFields'	=> array(
+						'article'	=> array
+						(
+								'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['article'],
+								'exclude'       	=> true,
+								'inputType'     	=> 'select',
+								'options_callback'	=> array('\HBAgency\Backend\FoundationModule','getAllArticles'),
+								'eval'              => array('chosen' => true, 'tl_class'=>'zf_module')
+						)
+				)
+		),
+		'sql'               => "blob NULL"
+);

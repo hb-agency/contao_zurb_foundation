@@ -80,6 +80,68 @@ class FoundationModule extends Contao_BE
 		return $arrModules;
 		
 	}
+
+	/*
+	 * Get all articles
+	*/
+	public function getAllArticles()
+	{
+		$arrPids = array();
+		$arrAlias = array();
+
+		if (!$this->User->isAdmin)
+		{
+			foreach ($this->User->pagemounts as $id)
+			{
+				$arrPids[] = $id;
+				$arrPids = array_merge($arrPids, $this->Database->getChildRecords($id, 'tl_page'));
+			}
+
+			if (empty($arrPids))
+			{
+				return $arrAlias;
+			}
+
+			$objAlias = $this->Database->prepare("SELECT c.id, c.pid, c.type, (CASE c.type WHEN 'module' THEN m.name WHEN 'form' THEN f.title WHEN 'table' THEN c.summary ELSE c.headline END) AS headline, c.text, a.title FROM tl_content c LEFT JOIN tl_article a ON a.id=c.pid LEFT JOIN tl_module m ON m.id=c.module LEFT JOIN tl_form f on f.id=c.form WHERE a.pid IN(". implode(',', array_map('intval', array_unique($arrPids))) .") AND (c.ptable='tl_article' OR c.ptable='') AND c.id!=? ORDER BY a.title, c.sorting")
+									   ->execute($this->Input->get('id'));
+		}
+		else
+		{
+			$objAlias = $this->Database->prepare("SELECT c.id, c.pid, c.type, (CASE c.type WHEN 'module' THEN m.name WHEN 'form' THEN f.title WHEN 'table' THEN c.summary ELSE c.headline END) AS headline, c.text, a.title FROM tl_content c LEFT JOIN tl_article a ON a.id=c.pid LEFT JOIN tl_module m ON m.id=c.module LEFT JOIN tl_form f on f.id=c.form WHERE (c.ptable='tl_article' OR c.ptable='') AND c.id!=? ORDER BY a.title, c.sorting")
+									   ->execute($this->Input->get('id'));
+		}
+
+		while ($objAlias->next())
+		{
+			$arrHeadline = deserialize($objAlias->headline, true);
+
+			if (isset($arrHeadline['value']))
+			{
+				$headline = \String::substr($arrHeadline['value'], 32);
+			}
+			else
+			{
+				$headline = \String::substr(preg_replace('/[\n\r\t]+/', ' ', $arrHeadline[0]), 32);
+			}
+
+			$text = \String::substr(strip_tags(preg_replace('/[\n\r\t]+/', ' ', $objAlias->text)), 32);
+			$strText = $GLOBALS['TL_LANG']['CTE'][$objAlias->type][0] . ' (';
+
+			if ($headline != '')
+			{
+				$strText .= $headline . ', ';
+			}
+			elseif ($text != '')
+			{
+				$strText .= $text . ', ';
+			}
+
+			$key = $objAlias->title . ' (ID ' . $objAlias->pid . ')';
+			$arrAlias[$key][$objAlias->id] = $strText . 'ID ' . $objAlias->id . ')';
+		}
+
+		return $arrAlias;
+	}
 	
 	/* 
 	 * Get possible columns

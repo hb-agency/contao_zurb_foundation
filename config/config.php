@@ -30,6 +30,7 @@ $GLOBALS['TL_CTE']['foundation'] = array(
 	'foundation_orbitstop'					=> 'HBAgency\ContentElement\Foundation\OrbitStop',
 	'foundation_flexvideo'					=> 'HBAgency\ContentElement\Foundation\FlexVideo',
 	'foundation_interchangesingle'			=> 'HBAgency\ContentElement\Foundation\InterchangeImageSingle',
+	'foundation_revealmodalwindow'          => 'HBAgency\ContentElement\Foundation\RevealModalWindow',
 );
 
 /**
@@ -41,6 +42,10 @@ array_insert($GLOBALS['FE_MOD']['application'], 4, array
 	'foundation_offcanvas' => '\HBAgency\Module\FoundationOffCanvas'
 ));
 
+array_insert($GLOBALS['FE_MOD']['application'], 5, array
+(
+	'foundation_revealmodalwindow' => '\HBAgency\Module\FoundationRevealModalWindow'
+));
 
 array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
 (

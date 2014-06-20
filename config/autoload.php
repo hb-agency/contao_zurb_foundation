@@ -47,6 +47,7 @@ TemplateLoader::addFiles(array
 	'ce_foundation_orbitstop' 	    => 'system/modules/zurb_foundation/templates/elements',
 	'ce_foundation_flexvideo' 	    => 'system/modules/zurb_foundation/templates/elements',
 	'ce_foundation_interchangeimage'=> 'system/modules/zurb_foundation/templates/elements',
+	'ce_foundation_revealmodalwindow'=> 'system/modules/zurb_foundation/templates/elements',
 	
 	//Modules
 	'mod_foundation_topbar' 	    => 'system/modules/zurb_foundation/templates/modules',

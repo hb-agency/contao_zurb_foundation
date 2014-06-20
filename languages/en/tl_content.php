@@ -33,6 +33,9 @@ $GLOBALS['TL_LANG']['tl_content']['foundation_equalizer']               = array(
 $GLOBALS['TL_LANG']['tl_content']['foundation_size_small']              = array('Small size','Small sizing for this image.');
 $GLOBALS['TL_LANG']['tl_content']['foundation_size_medium']             = array('Medium size','Medium sizing for this image.');
 $GLOBALS['TL_LANG']['tl_content']['foundation_size_large']              = array('Large size','Large sizing for this image.');
+$GLOBALS['TL_LANG']['tl_content']['foundation_button']              	= array('Button label','Modal dialog button label.');
+$GLOBALS['TL_LANG']['tl_content']['foundation_incarticle']              = array('Include article','Include article in Reveal Modal Window.');
+$GLOBALS['TL_LANG']['tl_content']['foundation_incmodule']              	= array('Include module','Include module in Reveal Modal Window.');
 
 /**
  * Reference

@@ -18,6 +18,8 @@
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_visibility';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_grid';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_block_grid';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_incarticle';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_incmodule';
 
 /**
  * Loop through all Content Elements and add Foundation to end of palette
@@ -42,6 +44,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_orbitstart'] = '{type_l
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_orbitstop'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_flexvideo'] = '{type_legend},type,headline;{source_legend},foundation_flexvideo;{player_legend},playerSize;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_interchangesingle'] = '{type_legend},type,headline;{source_legend},singleSRC;{size_legend},size,foundation_size_small,foundation_size_medium,foundation_size_large;{image_legend},alt,title,imagemargin,imageUrl,fullsize,caption;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_revealmodalwindow'] = '{type_legend},type,headline,foundation_button;{link_legend},url,target,linkTitle,embed,titleText;{imglink_legend:hide},useImage;{include_legend},foundation_incarticle,foundation_incmodule;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop;{foundation_legend:hide},foundation_visibility,foundation_grid,foundation_block_grid,foundation_equalize;';
 
 /**
  * Subpalettes
@@ -49,10 +52,40 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_interchangesingle'] = '
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_visibility'] = 'foundation_visibility_show,foundation_visibility_hide,foundation_visibility_orientation,foundation_visibility_touch';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_grid'] = 'foundation_grid_small,foundation_grid_medium,foundation_grid_large';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_block_grid'] = 'foundation_block_grid_settings';
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_incarticle'] = 'cteAlias';
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_incmodule'] = 'module';
 
 /**
  * Fields
  */
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_button'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_button'],
+		'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'text',
+		'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_incmodule'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_incmodule'],
+		'exclude'       	      => true,
+		'inputType'     	      => 'checkbox',
+		'eval'                    => array('submitOnChange'=>true),
+		'sql'                     => "char(1) NOT NULL default ''",
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_incarticle'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_incarticle'],
+		'exclude'       	      => true,
+		'inputType'     	      => 'checkbox',
+		'eval'                    => array('submitOnChange'=>true),
+		'sql'                     => "char(1) NOT NULL default ''",
+);
+ 
 $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_flexvideo'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_flexvideo'],
