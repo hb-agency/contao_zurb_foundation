@@ -2,9 +2,9 @@
 
 <?php $this->block('content'); ?>
 
-	<a href="#" data-reveal-id="myModal" class="radius button"><?php echo $this->revealModalButt; ?></a>
+	<a href="#" data-reveal-id="myModal_<?php echo $this->id; ?>" class="radius button"><?php echo $this->revealModalButt; ?></a>
 	
-	<div id="myModal" class="reveal-modal" data-reveal>
+	<div id="myModal_<?php echo $this->id; ?>" class="reveal-modal" data-reveal>
 
 		<?php echo $this->revHyperlink; ?>
 		<?php echo $this->revIncludeArticle; ?>
@@ -13,3 +13,4 @@
 	</div>
 	
 <?php $this->endblock(); ?>
+
