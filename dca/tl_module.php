@@ -790,3 +790,12 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['cteAlias'] = array
 		),
 		'sql'               => "blob NULL"
 );
+
+/**
+ * Additional image size options
+ */
+$GLOBALS['TL_DCA']['tl_module']['fields']['size']['inputType']	= 'imageSize';
+$GLOBALS['TL_DCA']['tl_module']['fields']['size']['options']	= $GLOBALS['TL_CROP'];
+$GLOBALS['TL_DCA']['tl_module']['fields']['size']['reference']	= &$GLOBALS['TL_LANG']['MSC'];
+$GLOBALS['TL_DCA']['tl_module']['fields']['size']['eval']		= array('rgxp'=>'digit', 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50');
+$GLOBALS['TL_DCA']['tl_module']['fields']['size']['label']		= &$GLOBALS['TL_LANG']['tl_content']['size'];

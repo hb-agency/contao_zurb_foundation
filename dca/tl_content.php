@@ -53,7 +53,7 @@ $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_visibility'] = 'foun
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_grid'] = 'foundation_grid_small,foundation_grid_medium,foundation_grid_large';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_block_grid'] = 'foundation_block_grid_settings';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_incarticle'] = 'cteAlias';
-$GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_incmodule'] = 'module';
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_incmodule'] = 'foundation_modules';
 
 /**
  * Fields
@@ -472,6 +472,57 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['orderPages'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['orderSRC'],
 	'sql'                     => "blob NULL"
 );
+
+
+/**
+ * Additional include options for multi options
+ */
+$GLOBALS['TL_DCA']['tl_content']['fields']['cteAlias'] = array
+(
+		'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['cteAlias'],
+		'exclude'       => false,
+		'inputType'     => 'multiColumnWizard',
+		'eval'			=> array(
+				'tl_class'      => 'zf_container clr',
+				'columnFields'	=> array(
+						'article'	=> array
+						(
+								'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['article'],
+								'exclude'       	=> true,
+								'inputType'     	=> 'select',
+								'options_callback'	=> array('\HBAgency\Backend\FoundationModule','getAllArticles'),
+								'eval'              => array('chosen' => true, 'tl_class'=>'zf_module')
+						)
+				)
+		),
+		'sql'               => "blob NULL"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_modules'] = array
+(
+	'label'         => &$GLOBALS['TL_LANG']['tl_content']['cteAlias'],
+	'exclude'       => true,
+	'inputType'     => 'multiColumnWizard',
+	'eval'			=> array(
+	    'tl_class'      => 'zf_container clr',
+		'columnFields'	=> array(
+			'module'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['module'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options_callback'  => array('tl_content', 'getModules'),
+				'eval'              => array('chosen' => true, 'tl_class'=>'zf_module')
+			)
+		)
+	),
+    'sql'               => "blob NULL"
+);
+
+
+
+
+
 
 
 

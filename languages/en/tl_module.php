@@ -78,6 +78,8 @@ $GLOBALS['TL_LANG']['tl_module']['foundation']['stop']  = 'End';
 /**
  * Legends
  */
+$GLOBALS['TL_LANG']['tl_module']['link_legend'] = 'Hyperlink settings';
+$GLOBALS['TL_LANG']['tl_module']['imglink_legend'] = 'Image link settings';
 $GLOBALS['TL_LANG']['tl_module']['foundationconfig_legend'] = 'Foundation configuration';
 $GLOBALS['TL_LANG']['tl_module']['foundation_legend'] = 'Foundation responsive settings';
 $GLOBALS['TL_LANG']['tl_module']['foundationleft_legend'] = 'Top Bar left section configuration';

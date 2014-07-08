@@ -14,19 +14,19 @@
 /**
  * Run in a custom namespace, so the class can be replaced
  */
-namespace HBAgency\Module;
+namespace HBAgency\Module\Foundation;
 
 use Contao\Module as Contao_Module;
 
 /**
- * Class FoundationNavTopBar 
+ * Class NavTopBar 
  *
  * Navigation Module that creates a Foundation Top Bar responsive nav
  * @copyright  2014 HB Agency
  * @author     Blair Winans <bwinans@hbagency.com>
  * @package    Zurb_Foundation
  */
-class FoundationNavTopBar extends Contao_Module
+class NavTopBar extends Contao_Module
 {
     
     /**

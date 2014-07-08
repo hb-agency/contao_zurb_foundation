@@ -39,18 +39,18 @@ $GLOBALS['TL_CTE']['foundation'] = array(
 
 array_insert($GLOBALS['FE_MOD']['application'], 4, array
 (
-	'foundation_offcanvas' => '\HBAgency\Module\FoundationOffCanvas'
+	'foundation_offcanvas' => '\HBAgency\Module\Foundation\OffCanvas'
 ));
 
 array_insert($GLOBALS['FE_MOD']['application'], 5, array
 (
-	'foundation_revealmodalwindow' => '\HBAgency\Module\FoundationRevealModalWindow'
+	'foundation_revealmodalwindow' => '\HBAgency\Module\Foundation\RevealModalWindow'
 ));
 
 array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
 (
-	'foundationnav_topbar' => '\HBAgency\Module\FoundationNavTopBar',
-	'foundation_tabbar' => '\HBAgency\Module\FoundationTabBar'
+	'foundationnav_topbar' => '\HBAgency\Module\Foundation\NavTopBar',
+	'foundation_tabbar' => '\HBAgency\Module\Foundation\TabBar'
 ));
 
 
@@ -63,9 +63,9 @@ array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['parseTemplate'][] 		= array('HBAgency\Hooks\FoundationParseTemplate', 'parseTemplate');
-$GLOBALS['TL_HOOKS']['getPageLayout'][] 		= array('HBAgency\Hooks\FoundationGetPageLayout', 'getPageLayout');
-$GLOBALS['TL_HOOKS']['getCombinedFile'][] 		= array('HBAgency\Hooks\FoundationGetCombinedFile', 'getCombinedFile');
+$GLOBALS['TL_HOOKS']['parseTemplate'][] 		= array('HBAgency\Hooks\ParseTemplate\Foundation', 'run');
+$GLOBALS['TL_HOOKS']['getPageLayout'][] 		= array('HBAgency\Hooks\GetPageLayout\Foundation', 'run');
+$GLOBALS['TL_HOOKS']['getCombinedFile'][] 		= array('HBAgency\Hooks\GetCombinedFile\Foundation', 'run');
 
 
 /**

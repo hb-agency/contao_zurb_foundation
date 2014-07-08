@@ -55,6 +55,7 @@ TemplateLoader::addFiles(array
 	'mod_foundation_tabbar_left' 	=> 'system/modules/zurb_foundation/templates/modules',
 	'mod_foundation_tabbar_right' 	=> 'system/modules/zurb_foundation/templates/modules',
 	'mod_breadcrumb_foundation' 	=> 'system/modules/zurb_foundation/templates/modules',
+	'mod_foundation_revealmodalwindow' 	=> 'system/modules/zurb_foundation/templates/modules',
 	
 	//Nav templates
     'nav_foundationleft' 	        => 'system/modules/zurb_foundation/templates/navigation',

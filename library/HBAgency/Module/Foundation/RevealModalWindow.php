@@ -14,19 +14,19 @@
 /**
  * Run in a custom namespace, so the class can be replaced
  */
-namespace HBAgency\Module;
+namespace HBAgency\Module\Foundation;
 
 use Contao\Module as Contao_Module;
 
 /**
- * Class FoundationRevealModalWindow
+ * Class RevealModalWindow
  *
  * Navigation Module that creates a Foundation Top Bar responsive nav
  * @copyright  2014 HB Agency
  * @author     Sebastijan Ribaric <sebastijan.ribaric@media-8.org>
  * @package    Zurb_Foundation
  */
-class FoundationRevealModalWindow extends Contao_Module
+class RevealModalWindow extends Contao_Module
 {
     
     /**
@@ -86,11 +86,11 @@ class FoundationRevealModalWindow extends Contao_Module
 		
 		$this->Template->revIncludeModule = '';
 		if (!empty($modules))
-		foreach ($modules as $item)
-		{
-			if (isset($item['module']))
-				$this->Template->revIncludeModule .= $this->getFrontendModule($item['module']). "\n";
-		}
+    		foreach ($modules as $item)
+    		{
+    			if (isset($item['module']))
+    				$this->Template->revIncludeModule .= $this->getFrontendModule($item['module']). "\n";
+    		}
 	
 		// Link trigger style
 		$this->Template->revealModalButt = $this->foundation_button;

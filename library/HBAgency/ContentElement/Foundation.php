@@ -32,12 +32,6 @@ abstract class Foundation extends Contao_CE
     public function __construct($objElement)
     {
         parent::__construct($objElement);
-
-        if (TL_MODE == 'FE') {
-            // Load Foundation javascript and css
-            //$GLOBALS['TL_JAVASCRIPT'][] = \Haste\Util\Debug::uncompressedFile('system/modules/isotope/assets/js/isotope.min.js');
-            //$GLOBALS['TL_CSS'][]        = \Haste\Util\Debug::uncompressedFile('system/modules/isotope/assets/css/isotope.min.css');
-        }
     }
 
 

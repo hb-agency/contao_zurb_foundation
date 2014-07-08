@@ -14,7 +14,7 @@
 /**
  * Run in a custom namespace, so the class can be replaced
  */
-namespace HBAgency\Hooks;
+namespace HBAgency\Hooks\GetPageLayout;
 
 use HBAgency\Foundation\SCSS;
 
@@ -27,7 +27,7 @@ use HBAgency\Foundation\SCSS;
  * @author     Blair Winans <bwinans@hbagency.com>
  * @package    Zurb_Foundation
  */
-class FoundationGetPageLayout extends \Controller
+class Foundation extends \Controller
 {
 	/**
 	 * Modify the page or layout object - Add in Foundation JS and CSS first!
@@ -35,7 +35,7 @@ class FoundationGetPageLayout extends \Controller
 	 * @param objPage
 	 * @return void
 	 */
-	public function getPageLayout($objPage, &$objLayout, $objPageRegular)
+	public function run($objPage, &$objLayout, $objPageRegular)
 	{
 		//Load up our Required Foundation JS into a Combiner
 		$objCombiner = new \Combiner();

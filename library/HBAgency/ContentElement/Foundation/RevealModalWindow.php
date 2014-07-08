@@ -40,11 +40,20 @@ class RevealModalWindow extends Zurb_Foundation
 		//Compile hyperlink element
 		$this->Template->revHyperlink = $this->_compileHyperlink();
 
+		
 		// Compile article element
-		$article = empty($this->cteAlias)
-			? null
-			: $this->cteAlias;
-		$this->Template->revIncludeArticle = $this->getContentElement($article);
+		$articles = empty($this->cteAlias)
+		? null
+		: deserialize($this->cteAlias);
+		
+		$this->Template->revIncludeArticle = '';
+		if (!empty($articles))
+		foreach ($articles as $item)
+		{
+			if (isset($item['article']))
+				$this->Template->revIncludeArticle .= $this->getContentElement($item['article']). "\n";
+		}
+				
 		
 		// Compile module element
 		$module =  empty($this->module)
@@ -159,31 +168,4 @@ class RevealModalWindow extends Zurb_Foundation
 		
 		return $this->subTemplate->parse();
 	}
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
