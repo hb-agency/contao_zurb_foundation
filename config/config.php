@@ -67,7 +67,7 @@ array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
 $GLOBALS['TL_HOOKS']['parseTemplate'][] 		= array('HBAgency\Hooks\ParseTemplate\Foundation', 'run');
 $GLOBALS['TL_HOOKS']['getPageLayout'][] 		= array('HBAgency\Hooks\GetPageLayout\Foundation', 'run');
 $GLOBALS['TL_HOOKS']['getCombinedFile'][] 		= array('HBAgency\Hooks\GetCombinedFile\Foundation', 'run');
-$GLOBALS['TL_HOOKS']['getAttributesFromDca'][]  = array('HBAgency\Hooks\StoreTabTitles\Foundation', 'run');
+//$GLOBALS['TL_HOOKS']['getAttributesFromDca'][]  = array('HBAgency\Hooks\StoreTabTitles\Foundation', 'run');
 
 
 /**
