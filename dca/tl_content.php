@@ -45,6 +45,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_orbitstop'] = '{type_le
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_flexvideo'] = '{type_legend},type,headline;{source_legend},foundation_flexvideo;{player_legend},playerSize;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_interchangesingle'] = '{type_legend},type,headline;{source_legend},singleSRC;{size_legend},size,foundation_size_small,foundation_size_medium,foundation_size_large;{image_legend},alt,title,imagemargin,imageUrl,fullsize,caption;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_revealmodalwindow'] = '{type_legend},type,headline,foundation_button;{link_legend},url,target,linkTitle,embed,titleText;{imglink_legend:hide},useImage;{include_legend},foundation_incarticle,foundation_incmodule;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop;{foundation_legend:hide},foundation_visibility,foundation_grid,foundation_block_grid,foundation_equalize;';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_tabs'] = '{type_legend},type,headline;{tabs_content},foundation_tabs_direction,foundation_tabs_content;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop;{foundation_legend:hide},foundation_visibility,foundation_grid,foundation_block_grid,foundation_equalize;';
 
 /**
  * Subpalettes
@@ -58,6 +59,43 @@ $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_incmodule'] = 'found
 /**
  * Fields
  */
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_tabs_direction'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_tabs_direction'],
+		'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'select',
+        'options'                 => $GLOBALS['TL_LANG']['FOUNDATION']['TABS']['DIRECTION'],
+		'eval'                    => array('tl_class'=>'w50','includeBlankOption' => false),
+        'reference'               => &$GLOBALS['TL_LANG']['MSC']['FOUNDATION'],
+		'sql'                     => "varchar(32) NOT NULL default ''"
+);
+
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_tabs_content'] = array
+(
+		'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['cteAlias'],
+		'exclude'       => false,
+		'inputType'     => 'multiColumnWizard',
+		'eval'			=> array(
+				'tl_class'      => 'zf_container clr',
+				'columnFields'	=> array(
+						'article'	=> array
+						(
+								'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['article'],
+								'exclude'       	=> true,
+								'inputType'     	=> 'select',
+								'options_callback'	=> array('\HBAgency\Backend\FoundationModule','getAllArticles'),
+								'eval'              => array('chosen' => true, 'tl_class'=>'zf_module'),
+								'wizard'            => array(
+										array('\HBAgency\Backend\FoundationContent', 'generateTabTitle')
+								)
+						)
+				)
+		),
+		'sql'               => "blob NULL"
+);
+
 $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_button'] = array
 (
 		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_button'],

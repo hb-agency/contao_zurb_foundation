@@ -13,6 +13,14 @@
  
 $GLOBALS['TL_LANG']['FOUNDATION'] = array
 (
+    'TABS' => array
+	(
+		'DIRECTION' => array
+		(
+			'' 			=> 'Horizontal',
+			'vertical'	=> 'Vertical'
+		),
+	),
     'SCSS' => array
 	(
 		'BREAKPOINT' => array

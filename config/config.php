@@ -15,7 +15,7 @@
  */
 define('FOUNDATION', '5.2.2');
  
- 
+
 /**
  * Content Elements
  */
@@ -31,6 +31,7 @@ $GLOBALS['TL_CTE']['foundation'] = array(
 	'foundation_flexvideo'					=> 'HBAgency\ContentElement\Foundation\FlexVideo',
 	'foundation_interchangesingle'			=> 'HBAgency\ContentElement\Foundation\InterchangeImageSingle',
 	'foundation_revealmodalwindow'          => 'HBAgency\ContentElement\Foundation\RevealModalWindow',
+    'foundation_tabs'	                    => 'HBAgency\ContentElement\Foundation\Tabs',
 );
 
 /**
@@ -66,6 +67,7 @@ array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
 $GLOBALS['TL_HOOKS']['parseTemplate'][] 		= array('HBAgency\Hooks\ParseTemplate\Foundation', 'run');
 $GLOBALS['TL_HOOKS']['getPageLayout'][] 		= array('HBAgency\Hooks\GetPageLayout\Foundation', 'run');
 $GLOBALS['TL_HOOKS']['getCombinedFile'][] 		= array('HBAgency\Hooks\GetCombinedFile\Foundation', 'run');
+$GLOBALS['TL_HOOKS']['getAttributesFromDca'][]  = array('HBAgency\Hooks\StoreTabTitles\Foundation', 'run');
 
 
 /**
