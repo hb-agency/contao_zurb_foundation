@@ -198,7 +198,7 @@ class FoundationContent extends Contao_BE
     		$strValue = 'Tab '. $intElId;
     	}
     	
-    	return sprintf('<td class="operations col_last"><input type="text" name="%s" id="%s" class="tl_text_2" value="%s" onfocus="Backend.getScrollOffset()"> &nbsp; </td>',
+    	return sprintf('<td class="operations col_last mcwUpdateFields"><input type="text" name="%s" id="%s" class="tl_text_2" value="%s" onfocus="Backend.getScrollOffset()"> &nbsp; </td>',
     		$strName,
     		$strHtmlId,
     		$strValue
