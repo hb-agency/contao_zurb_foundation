@@ -49,6 +49,12 @@ TemplateLoader::addFiles(array
 	'ce_foundation_interchangeimage'=> 'system/modules/zurb_foundation/templates/elements',
 	'ce_foundation_revealmodalwindow'=> 'system/modules/zurb_foundation/templates/elements',
 	
+	//Form Fields
+	'form_foundation_rowstart' 	    => 'system/modules/zurb_foundation/templates/forms',
+	'form_foundation_rowstop' 	    => 'system/modules/zurb_foundation/templates/forms',
+	'form_foundation_genstart' 	    => 'system/modules/zurb_foundation/templates/forms',
+	'form_foundation_genstop' 	    => 'system/modules/zurb_foundation/templates/forms',
+	
 	//Modules
 	'mod_foundation_topbar' 	    => 'system/modules/zurb_foundation/templates/modules',
 	'mod_foundation_offcanvas' 	    => 'system/modules/zurb_foundation/templates/modules',

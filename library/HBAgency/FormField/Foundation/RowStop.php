@@ -10,14 +10,14 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
  
- namespace HBAgency\ContentElement\Foundation;
+ namespace HBAgency\FormField\Foundation;
  
- use HBAgency\ContentElement\Foundation as Zurb_Foundation;
+ use HBAgency\FormField\Foundation as Zurb_Foundation;
  
  /**
- * Class GenericStart
+ * Class Row
  *
- * Creates a generic element for a Foundation wrapper
+ * Creates a Row element for a Foundation Row
  * Based off of "Wrapper" extension by Arne Stappen
  * @copyright  2014 HB Agency
  * @copyright  Arne Stappen 2011
@@ -25,44 +25,52 @@
  * @author 	   Arne Stappen <http://agoat.de>
  * @package    Zurb_Foundation
  */
-class GenericStart extends Zurb_Foundation
+class RowStop extends Zurb_Foundation
 {
 
 	/**
 	 * Template
 	 * @var string
 	 */
-	protected $strTemplate = 'ce_foundation_genstart';
+	protected $strTemplate = 'form_foundation_rowstop';
 	
 	/**
 	 * Display a wildcard in the back end
 	 * @return string
 	 */
-	public function generate()
+	public function parse($arrAttributes=null)
 	{
 	    if (TL_MODE == 'BE')
 		{
 			$this->strTemplate = 'be_wildcard';
 			$this->Template = new \BackendTemplate($this->strTemplate);
 			$class = deserialize($this->cssID);
-			$this->Template->wildcard = '### GENERIC BLOCK START ###';
-			return $this->Template->parse();
+			$this->Template->wildcard = '### FOUNDATION ROW STOP ###';
+			return (!$this->tableless ? '<tr><td>' : '') . $this->Template->parse() . (!$this->tableless ? '</td></tr>' : '');
+		}
+		
+		// Only tableless forms are supported
+		if (!$this->tableless)
+		{
+			return '';
 		}
         
-        return parent::generate();
+        return parent::parse($arrAttributes);
 	}
 	
 	/**
 	 * Generate content element
 	 * @return string
 	 */
-	protected function compile()
+	public function generate()
 	{
-		// Equalize
-		if($this->foundation_equalizer)
+	    // Only tableless forms are supported
+		if (!$this->tableless)
 		{
-            $this->Template->equalizer = 'data-equalizer';
-        }
+			return '';
+		}
+		
+        return $this->Template->parse();
 	}
 
 

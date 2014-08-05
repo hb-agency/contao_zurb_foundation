@@ -57,9 +57,15 @@ array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
 
 
 /**
- * Form fields !TODO
+ * Form fields
  */
-
+array_insert($GLOBALS['TL_FFL'], 20, array
+(
+	'foundation_rowstart'           => 'HBAgency\FormField\Foundation\RowStart',
+	'foundation_rowstop'			=> 'HBAgency\FormField\Foundation\RowStop',
+	'foundation_genericstart'		=> 'HBAgency\FormField\Foundation\GenericStart',
+	'foundation_genericstop'		=> 'HBAgency\FormField\Foundation\GenericStop',
+));
 
 /**
  * Hooks
