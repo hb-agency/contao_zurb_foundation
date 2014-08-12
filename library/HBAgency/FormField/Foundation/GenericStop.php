@@ -45,7 +45,7 @@ class GenericStop extends Zurb_Foundation
 			$this->strTemplate = 'be_wildcard';
 			$this->Template = new \BackendTemplate($this->strTemplate);
 			$class = deserialize($this->cssID);
-			$this->Template->wildcard = '### FOUNDATION ROW STOP ###';
+			$this->Template->wildcard = '### GENERIC WRAPPER STOP ###';
 			return (!$this->tableless ? '<tr><td>' : '') . $this->Template->parse() . (!$this->tableless ? '</td></tr>' : '');
 		}
 		
