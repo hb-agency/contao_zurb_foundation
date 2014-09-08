@@ -37,3 +37,4 @@ $GLOBALS['TL_LANG']['MSC']['FOUNDATION']['pull']                = 'Pull %s colum
 
 $GLOBALS['TL_LANG']['MSC']['FOUNDATION']['visible']             = 'Show';
 $GLOBALS['TL_LANG']['MSC']['FOUNDATION']['unpublished']         = 'Hide';
+$GLOBALS['TL_LANG']['MSC']['FOUNDATION']['tab']                 = 'Tab';
