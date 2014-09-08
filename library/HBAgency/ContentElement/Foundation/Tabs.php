@@ -62,7 +62,7 @@ class Tabs extends Zurb_Foundation
 			{
 				if (isset($arrItem['article']))
 				{
-					$arrItem['content'] = \Controller::getContentElement($arrItem['article']). "\n";
+					$arrItem['content'] = \Controller::getArticle($arrItem['article']);
 				}
 			}
 		}

@@ -42,16 +42,16 @@ class RevealModalWindow extends Zurb_Foundation
 
 		
 		// Compile article element
-		$articles = empty($this->cteAlias)
+		$articles = empty($this->foundation_articles)
 		? null
-		: deserialize($this->cteAlias);
+		: deserialize($this->foundation_articles);
 		
 		$this->Template->revIncludeArticle = '';
 		if (!empty($articles))
 		foreach ($articles as $item)
 		{
 			if (isset($item['article']))
-				$this->Template->revIncludeArticle .= $this->getContentElement($item['article']). "\n";
+				$this->Template->revIncludeArticle .= $this->getArticle($item['article']). "\n";
 		}
 				
 		
