@@ -62,11 +62,11 @@ class Tabs extends Zurb_Foundation
 			{
 				if (isset($arrItem['article']))
 				{
-					$arrItem['content'] = \Controller::getArticle($arrItem['article']);
+					$arrItem['content'] = \Controller::getArticle($arrItem['article'], false, true);
 				}
 			}
 		}
-
+		
 		$this->Template->tabs = $arrTabs;
 		$this->Template->foundation_tabs_direction = $this->foundation_tabs_direction;
 
