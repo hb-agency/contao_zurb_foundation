@@ -9,7 +9,16 @@
  * @link       http://www.hbagency.com
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
- 
+
+/**
+ * Forms
+ */ 
+$GLOBALS['TL_LANG']['FFL']['foundation_rowstart']               = array('Foundation Row START', 'Add in a wrapper for a foundation row.');
+$GLOBALS['TL_LANG']['FFL']['foundation_rowstop']                = array('Foundation Row STOP', 'Add in a wrapper for a foundation row.');
+$GLOBALS['TL_LANG']['FFL']['foundation_genericstart']           = array('General Wrapper START', 'Add in a wrapper for foundation elements.');
+$GLOBALS['TL_LANG']['FFL']['foundation_genericstop']            = array('General Wrapper STOP', 'Add in a wrapper for foundation elements.');
+
+
 /**
  * Fields
  */ 
