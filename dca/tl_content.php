@@ -53,7 +53,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_tabs'] = '{type_legend}
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_visibility'] = 'foundation_visibility_show,foundation_visibility_hide,foundation_visibility_orientation,foundation_visibility_touch';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_grid'] = 'foundation_grid_small,foundation_grid_medium,foundation_grid_large';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_block_grid'] = 'foundation_block_grid_settings';
-$GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_incarticle'] = 'cteAlias';
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_incarticle'] = 'foundation_articles';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_incmodule'] = 'foundation_modules';
 
 /**
@@ -74,20 +74,23 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_tabs_direction'] = array
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_tabs_content'] = array
 (
-		'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['cteAlias'],
+		'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['foundation_tabs_content'],
 		'exclude'       => false,
 		'inputType'     => 'multiColumnWizard',
-		'eval'			=> array(
+		'eval'			=> array
+		(
 				'tl_class'      => 'zf_container clr',
-				'columnFields'	=> array(
+				'columnFields'	=> array
+				(
 						'article'	=> array
 						(
 								'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['article'],
 								'exclude'       	=> true,
 								'inputType'     	=> 'select',
-								'options_callback'	=> array('\HBAgency\Backend\FoundationModule','getAllArticles'),
-								'eval'              => array('chosen' => true, 'tl_class'=>'zf_module'),
-								'wizard'            => array(
+								'options_callback'	=> array('\HBAgency\Backend\FoundationContent','getArticles'),
+								'eval'              => array('chosen' => true, 'tl_class'=>'zf_article'),
+								'wizard'            => array
+								(
 										array('\HBAgency\Backend\FoundationContent', 'generateTabTitle')
 								)
 						)
@@ -515,33 +518,36 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['orderPages'] = array
 /**
  * Additional include options for multi options
  */
-$GLOBALS['TL_DCA']['tl_content']['fields']['cteAlias'] = array
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_articles'] = array
 (
-		'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['cteAlias'],
+		'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['foundation_articles'],
 		'exclude'       => false,
 		'inputType'     => 'multiColumnWizard',
-		'eval'			=> array(
+		'eval'			=> array
+		(
 				'tl_class'      => 'zf_container clr',
-				'columnFields'	=> array(
+				'columnFields'	=> array
+				(
 						'article'	=> array
 						(
-								'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['article'],
+								'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['article'],
 								'exclude'       	=> true,
 								'inputType'     	=> 'select',
-								'options_callback'	=> array('\HBAgency\Backend\FoundationModule','getAllArticles'),
-								'eval'              => array('chosen' => true, 'tl_class'=>'zf_module')
+								'options_callback'	=> array('\HBAgency\Backend\FoundationContent','getArticles'),
+								'eval'              => array('chosen' => true, 'tl_class'=>'zf_article')
 						)
 				)
 		),
-		'sql'               => "blob NULL"
+		'sql'           => "blob NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_modules'] = array
 (
-	'label'         => &$GLOBALS['TL_LANG']['tl_content']['cteAlias'],
+	'label'         => &$GLOBALS['TL_LANG']['tl_content']['foundation_modules'],
 	'exclude'       => true,
 	'inputType'     => 'multiColumnWizard',
-	'eval'			=> array(
+	'eval'			=> array
+	(
 	    'tl_class'      => 'zf_container clr',
 		'columnFields'	=> array(
 			'module'	=> array
@@ -556,13 +562,4 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_modules'] = array
 	),
     'sql'               => "blob NULL"
 );
-
-
-
-
-
-
-
-
-
 
