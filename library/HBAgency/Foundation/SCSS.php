@@ -107,14 +107,14 @@ class SCSS extends \Controller
     	$strKey = '';
     	
     	//Apply configs
-    	$arrMediumCustom	= deserialize($objConfig->foundation_break_medium);
-    	$strKey .= 'm-' . $arrMediumCustom['value'] . $arrMediumCustom['unit'];
-    	$arrLargeCustom		= deserialize($objConfig->foundation_break_large);
-    	$strKey .= 'l-' . $arrLargeCustom['value'] . $arrLargeCustom['unit'];
-    	$arrXLargeCustom	= deserialize($objConfig->foundation_break_xlarge);
-    	$strKey .= 'xl-' . $arrXLargeCustom['value'] . $arrXLargeCustom['unit'];
-    	$arrXXLargeCustom	= deserialize($objConfig->foundation_break_xxlarge);
-    	$strKey .= 'xxl-' . $arrXXLargeCustom['value'] . $arrXXLargeCustom['unit'];
+    	$arrMediumCustom	= deserialize($objConfig->foundation_break_medium, true);
+    	$strKey .= 'm-' . ($arrMediumCustom['value'] ?: '') . ($arrMediumCustom['unit'] ?: '');
+    	$arrLargeCustom		= deserialize($objConfig->foundation_break_large, true);
+    	$strKey .= 'l-' . ($arrLargeCustom['value'] ?: '') . ($arrLargeCustom['unit'] ?: '');
+    	$arrXLargeCustom	= deserialize($objConfig->foundation_break_xlarge, true);
+    	$strKey .= 'xl-' . ($arrXLargeCustom['value'] ?: '') . ($arrXLargeCustom['unit'] ?: '');
+    	$arrXXLargeCustom	= deserialize($objConfig->foundation_break_xxlarge, true);
+    	$strKey .= 'xxl-' . ($arrXXLargeCustom['value'] ?: '') . ($arrXXLargeCustom['unit'] ?: '');
     	
     	return $strKey=='m-l-xl-xxl-' ? 'default' : substr(md5($strKey), 0, 12);
     }
