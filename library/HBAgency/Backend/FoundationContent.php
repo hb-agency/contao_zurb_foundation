@@ -163,46 +163,18 @@ class FoundationContent extends Contao_BE
     /**
 	 * Generate Tab Title
 	 *
-	 * @param \Contao\DataContainer $dc
-	 * @param \Contao\Widget        $objWidget
+	 * @param string
+	 * @param \Contao\Widget
 	 * @return string
 	 */
-    public function generateTabTitle($dc, $objWidget)
+    public function setTabTitle($varValue, &$objWidget)
     {
-    	$strName    = str_replace('[article]', '[title]', $objWidget->name);
-    	$strHtmlId  = str_replace('article', 'title', $objWidget->id);
-    	
-    	$intDCId = $dc->id;
-    	$intElId = $objWidget->value;
-    	
-		$varValue = \Database::getInstance()->prepare("SELECT c.foundation_tabs_content FROM tl_content c WHERE c.id=?")
-			                                ->execute($intDCId);
-		
-		$arrFoundation_tabs_content = isset($varValue->foundation_tabs_content)
-			? deserialize($varValue->foundation_tabs_content)
-			: array();
-		
-		$strValue = '';
-		
-    	foreach ($arrFoundation_tabs_content as $arrItem)
-    	{
-    		if ($intElId == $arrItem['article'] && !empty($arrItem['title']))
-    		{
-    			$strValue = $arrItem['title'];
-    			break;
-    		}	
-    	}
-    	
-    	if (empty($strValue))
-    	{
-    		$strValue = 'Tab '. $intElId;
-    	}
-    	
-    	return sprintf('<td class="operations col_last mcwUpdateFields"><input type="text" name="%s" id="%s" class="tl_text_2" value="%s" onfocus="Backend.getScrollOffset()"> &nbsp; </td>',
-    		$strName,
-    		$strHtmlId,
-    		$strValue
-    	);
+        if(empty($varValue))
+        {
+           $varValue = $GLOBALS['TL_LANG']['MSC']['FOUNDATION']['tab']; 
+        }
+        
+    	return $varValue;
     }
     
     /**
