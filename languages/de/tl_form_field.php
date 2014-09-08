@@ -10,6 +10,15 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
  
+ /**
+ * Forms
+ */ 
+$GLOBALS['TL_LANG']['FFL']['foundation_rowstart']               = array('Foundation Row START', 'Einen Wrapper für eine Foundation Row einfügen.');
+$GLOBALS['TL_LANG']['FFL']['foundation_rowstop']                = array('Foundation Row STOP', 'Einen Wrapper für eine Foundation Row einfügen.');
+$GLOBALS['TL_LANG']['FFL']['foundation_genericstart']           = array('General Wrapper START', 'Einen Wrapper für ein Foundation Element einfügen.');
+$GLOBALS['TL_LANG']['FFL']['foundation_genericstop']            = array('General Wrapper STOP', 'Einen Wrapper für ein Foundation Element einfügen.');
+
+
 /**
  * Fields
  */ 
