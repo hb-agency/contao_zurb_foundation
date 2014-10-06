@@ -42,13 +42,13 @@ $GLOBALS['TL_LANG']['tl_module']['foundation_visibility_hide']         = array('
 $GLOBALS['TL_LANG']['tl_module']['foundation_visibility_orientation']  = array('Zeige/Verstecke Ausrichtung','Zeige/Verstecke Element abhängig der Bildschirm Ausrichtung.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_visibility_touch']        = array('Zeige/Verstecke Touch','Zeige/Verstecke Element abhängig von der Touch Fähigkeit.');
 
-$GLOBALS['TL_LANG']['tl_module']['foundation_grid']                    = array('Foundation Grid', 'Wählen Sie Sie hier die Grid Einstellung von diesem Element für verschiedene Bildschirmbreiten für responsive Seiten. Foundation basiert auf einem 12 Spalten Grid System.');
+$GLOBALS['TL_LANG']['tl_module']['foundation_grid']                    = array('Foundation Grid', 'Wählen Sie hier die Grid Einstellung von diesem Element für verschiedene Bildschirmbreiten für responsive Seiten. Foundation basiert auf einem 12 Spalten Grid System.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_grid_small']              = array('Small Einstellungen','Kleine Bildschirmbreite Einstellungen.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_grid_medium']             = array('Medium Einstellungen','Medium Bildschirmbreite Einstellungen.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_grid_large']              = array('Large Einstellungen','Große Bildschirmbreite Einstellungen.');
 
-$GLOBALS['TL_LANG']['tl_module']['foundation_block_grid']              = array('Foundation Block Grid', 'Wählen Sie Sie hier die Grid Einstellung von diesem Element für verschiedene Bildschirmbreiten für responsive Seiten. Foundation basiert auf einem 12 Spalten Grid System');
-$GLOBALS['TL_LANG']['tl_module']['foundation_block_grid_settings']     = array('Block Grid Spalten Einstellungen', 'Wählen Sie Sie hier die Grid Einstellung von diesem Element für verschiedene Bildschirmbreiten für responsive Seiten. Foundation basiert auf einem 12 Spalten Grid System');
+$GLOBALS['TL_LANG']['tl_module']['foundation_block_grid']              = array('Foundation Block Grid', 'Wählen Sie hier die Grid Einstellung von diesem Element für verschiedene Bildschirmbreiten für responsive Seiten. Foundation basiert auf einem 12 Spalten Grid System');
+$GLOBALS['TL_LANG']['tl_module']['foundation_block_grid_settings']     = array('Block Grid Spalten Einstellungen', 'Wählen Sie hier die Grid Einstellung von diesem Element für verschiedene Bildschirmbreiten für responsive Seiten. Foundation basiert auf einem 12 Spalten Grid System');
 
 $GLOBALS['TL_LANG']['tl_module']['foundation_equalize']                = array('Gleiche Höhe', 'Wenn dieses Element ein Kindelement einer Zeile ist, wird bei der Wahl dieser Option, alle Elemente dieser Zeile mit einer gleichen Höhe angezeigt.');            
 $GLOBALS['TL_LANG']['tl_module']['foundation_equalizer']               = array('Gleiche Höhe für Kind Elemente', 'Bei der Wahl dieser Option, wird den Kindelementen in der Zeile erlaubt, die Höge mit den anderen Elementen abzugleichen.');            
