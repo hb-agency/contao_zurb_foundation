@@ -14,7 +14,7 @@
 /**
  * Run in a custom namespace, so the class can be replaced
  */
-namespace HBAgency\Hooks;
+namespace HBAgency\Hooks\ParseTemplate;
 
 
 
@@ -26,14 +26,14 @@ namespace HBAgency\Hooks;
  * @author     Blair Winans <bwinans@hbagency.com>
  * @package    Zurb_Foundation
  */
-class FoundationParseTemplate extends \Controller
+class Foundation extends \Controller
 {
 	/**
 	 * Parse the template
 	 * @param Template
 	 * @return Template
 	 */
-	public function parseTemplate(&$objTemplate)
+	public function run(&$objTemplate)
 	{
 		if(TL_MODE == 'FE')
 		{

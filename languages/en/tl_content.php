@@ -33,6 +33,12 @@ $GLOBALS['TL_LANG']['tl_content']['foundation_equalizer']               = array(
 $GLOBALS['TL_LANG']['tl_content']['foundation_size_small']              = array('Small size','Small sizing for this image.');
 $GLOBALS['TL_LANG']['tl_content']['foundation_size_medium']             = array('Medium size','Medium sizing for this image.');
 $GLOBALS['TL_LANG']['tl_content']['foundation_size_large']              = array('Large size','Large sizing for this image.');
+$GLOBALS['TL_LANG']['tl_content']['foundation_button']              	= array('Button label','Modal dialog button label.');
+$GLOBALS['TL_LANG']['tl_content']['foundation_incarticle']              = array('Include article','Include article in Reveal Modal Window.');
+$GLOBALS['TL_LANG']['tl_content']['foundation_incmodule']              	= array('Include module','Include module in Reveal Modal Window.');
+$GLOBALS['TL_LANG']['tl_content']['foundation_tabs_direction']          = array('Tabs direction','You can create a group of horizontal or vertical tabs.');
+$GLOBALS['TL_LANG']['tl_content']['foundation_tabs_content']            = array('Articles and Tabs','Select an Article to use for the tab content as well as a tab title.');
+$GLOBALS['TL_LANG']['tl_content']['tabtitle']                           = array('Table title', 'Enter a tab title.');
 
 /**
  * Reference
@@ -56,3 +62,4 @@ $GLOBALS['TL_LANG']['tl_content']['foundation']['stop']  = 'End';
  */
 $GLOBALS['TL_LANG']['tl_content']['size_legend']        = 'Sizing settings';
 $GLOBALS['TL_LANG']['tl_content']['foundation_legend']  = 'Foundation responsive settings';
+$GLOBALS['TL_LANG']['tl_content']['tabs_content']       = 'Tabs Content';

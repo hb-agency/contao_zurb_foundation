@@ -1,0 +1,16 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+	<a href="#" data-reveal-id="myModal_<?php echo $this->id; ?>" class="radius button"><?php echo $this->revealModalButt; ?></a>
+	
+	<div id="myModal_<?php echo $this->id; ?>" class="reveal-modal" data-reveal>
+
+		<?php echo $this->revHyperlink; ?>
+		<?php echo $this->revIncludeArticle; ?>
+		<?php echo $this->revIncludeModule; ?>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+	
+<?php $this->endblock(); ?>
+

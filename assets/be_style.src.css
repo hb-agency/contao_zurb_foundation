@@ -1,8 +1,32 @@
+.w25 {
+    width: 25%;
+    float: left;
+    height: 92px;
+}
+.w25 .tl_select {
+    width: 150px;
+}
+.w20 .tl_select {
+    width: 100px;
+}
+.foundation_settings thead td, .foundation_settings .w20 {
+    width: auto;
+    float:none;
+    height:auto;
+    padding-right:25px;
+}
+.tl_select_small .tl_select {
+    width: 60px;
+}
 .zf_container .multicolumnwizard table {
     width: 100%;
 }
+.zf_container .multicolumnwizard .zf_article .tl_select,
 .zf_container .multicolumnwizard .zf_module .tl_select {
-    width: 400px;
+    width: 300px;
+}
+.zf_container .multicolumnwizard .zf_tabtitle .tl_text {
+    width:200px;
 }
 .zf_container .multicolumnwizard .zf_columns .tl_select {
     width: 200px;

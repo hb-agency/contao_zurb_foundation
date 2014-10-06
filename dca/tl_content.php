@@ -18,6 +18,8 @@
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_visibility';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_grid';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_block_grid';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_incarticle';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_incmodule';
 
 /**
  * Loop through all Content Elements and add Foundation to end of palette
@@ -42,6 +44,8 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_orbitstart'] = '{type_l
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_orbitstop'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_flexvideo'] = '{type_legend},type,headline;{source_legend},foundation_flexvideo;{player_legend},playerSize;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_interchangesingle'] = '{type_legend},type,headline;{source_legend},singleSRC;{size_legend},size,foundation_size_small,foundation_size_medium,foundation_size_large;{image_legend},alt,title,imagemargin,imageUrl,fullsize,caption;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_revealmodalwindow'] = '{type_legend},type,headline,foundation_button;{link_legend},url,target,linkTitle,embed,titleText;{imglink_legend:hide},useImage;{include_legend},foundation_incarticle,foundation_incmodule;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop;{foundation_legend:hide},foundation_visibility,foundation_grid,foundation_block_grid,foundation_equalize;';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_tabs'] = '{type_legend},type,headline;{tabs_content},foundation_tabs_direction,foundation_tabs_content;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop;{foundation_legend:hide},foundation_visibility,foundation_grid,foundation_block_grid,foundation_equalize;';
 
 /**
  * Subpalettes
@@ -49,10 +53,84 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_interchangesingle'] = '
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_visibility'] = 'foundation_visibility_show,foundation_visibility_hide,foundation_visibility_orientation,foundation_visibility_touch';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_grid'] = 'foundation_grid_small,foundation_grid_medium,foundation_grid_large';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_block_grid'] = 'foundation_block_grid_settings';
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_incarticle'] = 'foundation_article';
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_incmodule'] = 'foundation_modules';
 
 /**
  * Fields
  */
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_tabs_direction'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_tabs_direction'],
+		'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'select',
+        'options'                 => $GLOBALS['TL_LANG']['FOUNDATION']['TABS']['DIRECTION'],
+		'eval'                    => array('tl_class'=>'w50','includeBlankOption' => false),
+        'reference'               => &$GLOBALS['TL_LANG']['MSC']['FOUNDATION'],
+		'sql'                     => "varchar(32) NOT NULL default ''"
+);
+
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_tabs_content'] = array
+(
+		'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['foundation_tabs_content'],
+		'exclude'       => false,
+		'inputType'     => 'multiColumnWizard',
+		'save_callback' => array('\HBAgency\Backend\FoundationContent', 'setTabTitle'),
+		'eval'			=> array
+		(
+				'tl_class'      => 'zf_container clr',
+				'columnFields'	=> array
+				(
+						'article'	=> array
+						(
+								'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['article'],
+								'exclude'       	=> true,
+								'inputType'     	=> 'select',
+								'options_callback'	=> array('\HBAgency\Backend\FoundationContent','getArticles'),
+								'eval'              => array('chosen' => true, 'tl_class'=>'zf_article'),
+						),
+						'title'     => array
+                        (
+                                'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['tabtitle'],
+								'exclude'       	=> true,
+								'inputType'     	=> 'text',
+								'eval'              => array('tl_class'=>'zf_tabtitle'),
+                        ),
+				),
+		),
+		'sql'               => "blob NULL"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_button'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_button'],
+		'exclude'                 => true,
+		'search'                  => true,
+		'inputType'               => 'text',
+		'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
+		'sql'                     => "varchar(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_incmodule'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_incmodule'],
+		'exclude'       	      => true,
+		'inputType'     	      => 'checkbox',
+		'eval'                    => array('submitOnChange'=>true),
+		'sql'                     => "char(1) NOT NULL default ''",
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_incarticle'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_incarticle'],
+		'exclude'       	      => true,
+		'inputType'     	      => 'checkbox',
+		'eval'                    => array('submitOnChange'=>true),
+		'sql'                     => "char(1) NOT NULL default ''",
+);
+ 
 $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_flexvideo'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_flexvideo'],
@@ -441,6 +519,50 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['orderPages'] = array
 );
 
 
+/**
+ * Additional include options for multi options
+ */
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_article'] = array
+(
+		'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['foundation_article'],
+		'exclude'       => false,
+		'inputType'     => 'multiColumnWizard',
+		'eval'			=> array
+		(
+				'tl_class'      => 'zf_container clr',
+				'columnFields'	=> array
+				(
+						'article'	=> array
+						(
+								'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['article'],
+								'exclude'       	=> true,
+								'inputType'     	=> 'select',
+								'options_callback'	=> array('\HBAgency\Backend\FoundationContent','getArticles'),
+								'eval'              => array('chosen' => true, 'tl_class'=>'zf_article')
+						)
+				)
+		),
+		'sql'           => "blob NULL"
+);
 
-
-
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_modules'] = array
+(
+	'label'         => &$GLOBALS['TL_LANG']['tl_content']['foundation_modules'],
+	'exclude'       => true,
+	'inputType'     => 'multiColumnWizard',
+	'eval'			=> array
+	(
+	    'tl_class'      => 'zf_container clr',
+		'columnFields'	=> array(
+			'module'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['module'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options_callback'  => array('tl_content', 'getModules'),
+				'eval'              => array('chosen' => true, 'tl_class'=>'zf_module')
+			)
+		)
+	),
+    'sql'               => "blob NULL"
+);

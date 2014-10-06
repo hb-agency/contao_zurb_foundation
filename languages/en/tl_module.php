@@ -56,6 +56,9 @@ $GLOBALS['TL_LANG']['tl_module']['foundation_offcanvas_side']          = array('
 $GLOBALS['TL_LANG']['tl_module']['foundation_tabbar_title']            = array('Menu title', 'Select the menu title of the tab bar that will trigger the offcanvas element.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_tabbar_title_side']       = array('Menu title side', 'Select the side to show the menu title of the tab bar that will trigger the offcanvas element.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_modules']                 = array('Modules', 'Select the module for this foundation element.');
+$GLOBALS['TL_LANG']['tl_module']['foundation_button']                  = array('Button label','Modal dialog button label.');
+$GLOBALS['TL_LANG']['tl_module']['foundation_incarticle']              = array('Include article','Include article in Reveal Modal Window.');
+$GLOBALS['TL_LANG']['tl_module']['foundation_incmodule']               = array('Include module','Include module in Reveal Modal Window.');
  
 /**
  * Reference
@@ -75,6 +78,8 @@ $GLOBALS['TL_LANG']['tl_module']['foundation']['stop']  = 'End';
 /**
  * Legends
  */
+$GLOBALS['TL_LANG']['tl_module']['link_legend'] = 'Hyperlink settings';
+$GLOBALS['TL_LANG']['tl_module']['imglink_legend'] = 'Image link settings';
 $GLOBALS['TL_LANG']['tl_module']['foundationconfig_legend'] = 'Foundation configuration';
 $GLOBALS['TL_LANG']['tl_module']['foundation_legend'] = 'Foundation responsive settings';
 $GLOBALS['TL_LANG']['tl_module']['foundationleft_legend'] = 'Top Bar left section configuration';

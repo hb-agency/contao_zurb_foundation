@@ -14,7 +14,7 @@
 /**
  * Run in a custom namespace, so the class can be replaced
  */
-namespace HBAgency\Hooks;
+namespace HBAgency\Hooks\GetCombinedFile;
 
 
 
@@ -26,7 +26,7 @@ namespace HBAgency\Hooks;
  * @author     Blair Winans <bwinans@hbagency.com>
  * @package    Zurb_Foundation
  */
-class FoundationGetCombinedFile extends \Controller
+class Foundation extends \Controller
 {
 
 	/**
@@ -37,7 +37,7 @@ class FoundationGetCombinedFile extends \Controller
 	 * @param array
 	 * @return string
 	 */
-	public function getCombinedFile($content, $strKey, $strMode, $arrFile)
+	public function run($content, $strKey, $strMode, $arrFile)
 	{
 		if(in_array($arrFile['name'], $GLOBALS['FOUNDATION_JS']) && !\Config::get('debugMode'))
 		{

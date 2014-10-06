@@ -1,0 +1,22 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); //d($this->tabs); ?>
+
+	<?php if ($this->tabs) : ?>
+		<?php $titles = $rows = ''; ?>
+		<?php foreach($this->tabs as $i => $tab) : ?>
+			<?php $titles .= '<li class="tab-title' .(0==$i?' active':''). '"><a href="#panel' .$this->id. '-' .$i. '">' .$tab['title'] . '</a></li>' . "\n"; ?>
+			<?php $rows .= '<div class="content' .(0==$i?' active':''). '" id="panel' .$this->id. '-' .$i. '">' .$tab['content'] . '</div>' . "\n"; ?>
+		<?php endforeach; ?>
+		
+		<ul class="tabs<?php echo ' '.$this->foundation_tabs_direction; ?>" data-tab>
+			<?php echo $titles; ?>
+		</ul>
+		<div class="tabs-content">
+			<?php echo $rows; ?>
+		</div>
+		
+	<?php endif; ?>
+
+<?php $this->endblock(); ?>
+

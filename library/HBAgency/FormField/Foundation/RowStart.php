@@ -10,9 +10,9 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
  
- namespace HBAgency\ContentElement\Foundation;
+ namespace HBAgency\FormField\Foundation;
  
- use HBAgency\ContentElement\Foundation as Zurb_Foundation;
+ use HBAgency\FormField\Foundation as Zurb_Foundation;
  
  /**
  * Class Row
@@ -32,37 +32,48 @@ class RowStart extends Zurb_Foundation
 	 * Template
 	 * @var string
 	 */
-	protected $strTemplate = 'ce_foundation_rowstart';
+	protected $strTemplate = 'form_foundation_rowstart';
 	
 	/**
 	 * Display a wildcard in the back end
 	 * @return string
 	 */
-	public function generate()
+	public function parse($arrAttributes=null)
 	{
 	    if (TL_MODE == 'BE')
 		{
-			$this->strTemplate = 'be_wildcard';
-			$this->Template = new \BackendTemplate($this->strTemplate);
+			$this->Template = new \BackendTemplate('be_wildcard');
 			$class = deserialize($this->cssID);
 			$this->Template->wildcard = '### FOUNDATION ROW START ###';
-			return $this->Template->parse();
+			return (!$this->tableless ? '<tr><td>' : '') . $this->Template->parse() . (!$this->tableless ? '</td></tr>' : '');
 		}
-        
-        return parent::generate();
+		
+		// Only tableless forms are supported
+		if (!$this->tableless)
+		{
+			return '';
+		}
+		
+		$this->Template = new \FrontendTemplate($this->strTemplate);
+        $this->Template->setData($this->getData());
+        return $this->Template->parse();
 	}
 	
 	/**
 	 * Generate content element
 	 * @return string
 	 */
-	protected function compile()
+	public function generate()
 	{
-		// Equalize
-		if($this->foundation_equalizer)
+	    // Only tableless forms are supported
+		if (!$this->tableless)
 		{
-            $this->Template->equalizer = 'data-equalizer';
-        }
+			return '';
+		}
+		
+		$this->Template = new \FrontendTemplate($this->strTemplate);
+		$this->Template->setData($this->getData());
+        return $this->Template->parse();
 	}
 
 

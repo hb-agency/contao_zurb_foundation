@@ -135,6 +135,11 @@ class FoundationContent extends Contao_BE
 	
 	/**
 	 * Generate Options for columns, offset, push and pull
+	 *
+	 * @param string $strSize   The width size
+	 * @param string $strType   The foundation type
+	 * @param string $strSource The foundation source type
+	 * @return array
 	 */
     public static function getColumnOptions($strSize='small', $strType='columns', $strSource='GRID') 
     {
@@ -153,6 +158,91 @@ class FoundationContent extends Contao_BE
         }
         
         return $arrSizes;
+    }
+    
+    /**
+	 * Generate Tab Title
+	 *
+	 * @param string
+	 * @param \Contao\Widget
+	 * @return string
+	 */
+    public function setTabTitle($varValue, &$objWidget)
+    {
+        if(empty($varValue))
+        {
+           $varValue = $GLOBALS['TL_LANG']['MSC']['FOUNDATION']['tab']; 
+        }
+        
+    	return $varValue;
+    }
+    
+    /**
+	 * Get all Articles
+	 *
+	 * @return array
+	 */
+    public function getArticles()
+    {
+        $arrPids = array();
+		$arrArticle = array();
+		$arrRoot = array();
+		$intPid = \Input::get('id');
+
+		// Limit pages to the website root
+		$objArticle = $this->Database->prepare("SELECT pid FROM tl_article WHERE id=?")
+									 ->limit(1)
+									 ->execute($intPid);
+
+		if ($objArticle->numRows)
+		{
+			$objPage = \PageModel::findWithDetails($objArticle->pid);
+			$arrRoot = $this->Database->getChildRecords($objPage->rootId, 'tl_page');
+			array_unshift($arrRoot, $objPage->rootId);
+		}
+
+		unset($objArticle);
+
+		// Limit pages to the user's pagemounts
+		if ($this->User->isAdmin)
+		{
+			$objArticle = $this->Database->execute("SELECT a.id, a.pid, a.title, a.inColumn, p.title AS parent FROM tl_article a LEFT JOIN tl_page p ON p.id=a.pid" . (!empty($arrRoot) ? " WHERE a.pid IN(". implode(',', array_map('intval', array_unique($arrRoot))) .")" : "") . " ORDER BY parent, a.sorting");
+		}
+		else
+		{
+			foreach ($this->User->pagemounts as $id)
+			{
+				if (!in_array($id, $arrRoot))
+				{
+					continue;
+				}
+
+				$arrPids[] = $id;
+				$arrPids = array_merge($arrPids, $this->Database->getChildRecords($id, 'tl_page'));
+			}
+
+			if (empty($arrPids))
+			{
+				return $arrArticle;
+			}
+
+			$objArticle = $this->Database->execute("SELECT a.id, a.pid, a.title, a.inColumn, p.title AS parent FROM tl_article a LEFT JOIN tl_page p ON p.id=a.pid WHERE a.pid IN(". implode(',', array_map('intval', array_unique($arrPids))) .") ORDER BY parent, a.sorting");
+		}
+
+		// Edit the result
+		if ($objArticle->numRows)
+		{
+			\System::loadLanguageFile('tl_article');
+
+			while ($objArticle->next())
+			{
+				$key = $objArticle->parent . ' (ID ' . $objArticle->pid . ')';
+				$arrArticle[$key][$objArticle->id] = $objArticle->title . ' (' . ($GLOBALS['TL_LANG']['tl_article'][$objArticle->inColumn] ?: $objArticle->inColumn) . ', ID ' . $objArticle->id . ')';
+			}
+		}
+
+		return $arrArticle;
+
     }
     
 }

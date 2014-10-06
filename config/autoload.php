@@ -47,6 +47,14 @@ TemplateLoader::addFiles(array
 	'ce_foundation_orbitstop' 	    => 'system/modules/zurb_foundation/templates/elements',
 	'ce_foundation_flexvideo' 	    => 'system/modules/zurb_foundation/templates/elements',
 	'ce_foundation_interchangeimage'=> 'system/modules/zurb_foundation/templates/elements',
+	'ce_foundation_tabs'            => 'system/modules/zurb_foundation/templates/elements',
+	'ce_foundation_revealmodalwindow'=> 'system/modules/zurb_foundation/templates/elements',
+	
+	//Form Fields
+	'form_foundation_rowstart' 	    => 'system/modules/zurb_foundation/templates/forms',
+	'form_foundation_rowstop' 	    => 'system/modules/zurb_foundation/templates/forms',
+	'form_foundation_genstart' 	    => 'system/modules/zurb_foundation/templates/forms',
+	'form_foundation_genstop' 	    => 'system/modules/zurb_foundation/templates/forms',
 	
 	//Modules
 	'mod_foundation_topbar' 	    => 'system/modules/zurb_foundation/templates/modules',
@@ -54,6 +62,7 @@ TemplateLoader::addFiles(array
 	'mod_foundation_tabbar_left' 	=> 'system/modules/zurb_foundation/templates/modules',
 	'mod_foundation_tabbar_right' 	=> 'system/modules/zurb_foundation/templates/modules',
 	'mod_breadcrumb_foundation' 	=> 'system/modules/zurb_foundation/templates/modules',
+	'mod_foundation_revealmodalwindow' 	=> 'system/modules/zurb_foundation/templates/modules',
 	
 	//Nav templates
     'nav_foundationleft' 	        => 'system/modules/zurb_foundation/templates/navigation',
