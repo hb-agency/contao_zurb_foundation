@@ -37,6 +37,8 @@ $GLOBALS['TL_LANG']['tl_content']['foundation_button']                  = array(
 $GLOBALS['TL_LANG']['tl_content']['foundation_incarticle']              = array('Artikel einbeziehen','Artikel im Reveal Modal Fenster einbeziehen.');
 $GLOBALS['TL_LANG']['tl_content']['foundation_incmodule']               = array('Modul einbeziehen','Modul im Reveal Modal Fenster einbeziehen.');
 $GLOBALS['TL_LANG']['tl_content']['foundation_tabs_direction']          = array('Tab Ausrichtung','Sie können eine Gruppe horizontaler oder vertikaler Tabs anlegen.');
+$GLOBALS['TL_LANG']['tl_content']['foundation_tabs_content']            = array('Artikel und Tabs','Wählen Sie einen Artikel als Tab Inhalt und als Tab Titel aus.');
+$GLOBALS['TL_LANG']['tl_content']['tabtitle']                           = array('Table Titel', 'Geben Sie den Tabellen Titel ein.');
 
 
 /**

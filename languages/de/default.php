@@ -22,7 +22,6 @@ $GLOBALS['TL_LANG']['CTE']['foundation_genericstop']            = array('General
 $GLOBALS['TL_LANG']['CTE']['foundation_orbitstart']           	= array('Orbit Slider START', 'Ein Startelement für einen Orbit responsiven Slider hinzufügen.');
 $GLOBALS['TL_LANG']['CTE']['foundation_orbitstop']            	= array('Orbit Slider STOP', 'Ein Stopelement für einen Orbit responsiven Slider hinzufügen.');
 $GLOBALS['TL_LANG']['CTE']['foundation_flexvideo']            	= array('Flex Video', 'Ein responsives Videoelement hinzufügen.');
-
 $GLOBALS['TL_LANG']['CTE']['foundation_interchangesingle']      = array('Austausch eines Bildes', 'Fügen Sie ein Bild hinzu und geben Sie unterschiedliche Größen für unterschiedliche Breakpoints an.');
 $GLOBALS['TL_LANG']['CTE']['foundation_revealmodalwindow']      = array('Reveal Modal Fenster', 'Modal Dialoge, oder Pop-Up Fenster, sind nützlich für Prototyping und Produktion.');
 $GLOBALS['TL_LANG']['CTE']['foundation_tabs']                   = array('Foundation Tabs', 'Tabs sind Elemente, die einem helfen, mehrere Dokumente in einem einzigen Container zu organisieren und anzusteuern.');
@@ -38,3 +37,4 @@ $GLOBALS['TL_LANG']['MSC']['FOUNDATION']['pull']                = 'Pull %s colum
 
 $GLOBALS['TL_LANG']['MSC']['FOUNDATION']['visible']             = 'Anzeigen';
 $GLOBALS['TL_LANG']['MSC']['FOUNDATION']['unpublished']         = 'Ausblenden';
+$GLOBALS['TL_LANG']['MSC']['FOUNDATION']['tab']                 = 'Tab';
