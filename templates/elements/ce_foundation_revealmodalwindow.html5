@@ -1,16 +1,35 @@
 <?php $this->extend('block_searchable'); ?>
 
 <?php $this->block('content'); ?>
+    <?php if($this->useImage): ?>
 
-	<a href="#" data-reveal-id="myModal_<?php echo $this->id; ?>" class="radius button"><?php echo $this->revealModalButt; ?></a>
-	
-	<div id="myModal_<?php echo $this->id; ?>" class="reveal-modal" data-reveal>
+    <figure class="image_container">
 
-		<?php echo $this->revHyperlink; ?>
-		<?php echo $this->revIncludeArticle; ?>
-		<?php echo $this->revIncludeModule; ?>
-	  <a class="close-reveal-modal">&#215;</a>
-	</div>
+    <?php echo $this->embed_pre; ?>
+        <a data-reveal-id="myModal_<?php echo $this->id; ?>" href="#" class="hyperlink_img" title="<?php echo $this->linkTitle; ?>"<?php echo $this->attribute; ?><?php echo $this->target; ?>>
+        <img src="<?php echo $this->src; ?>"<?php echo $this->imgSize; ?> alt="<?php echo $this->alt; ?>"<?php if ($this->title): ?> title="<?php echo $this->title; ?>"<?php endif; ?>>
+        </a>
+    <?php echo $this->embed_post; ?>
+
+    <?php if ($this->caption): ?>
+        <figcaption class="caption" style="width:<?php echo $this->arrSize[0]; ?>px"><?php echo $this->caption; ?></figcaption>
+    <?php endif; ?>
+
+    </figure>
+    <?php else: ?>
+    
+    <?php echo $this->embed_pre; ?>
+    <a data-reveal-id="myModal_<?php echo $this->id; ?>" href="#" class="hyperlink_txt radius button" title="<?php echo $this->linkTitle; ?>"<?php echo $this->attribute; ?><?php echo $this->target; ?>>
+      <?php echo $this->link; ?>
+    </a>
+    <?php echo $this->embed_post; ?>
+  
+    <?php endif; ?>
+  
+    <div id="myModal_<?php echo $this->id; ?>" class="reveal-modal" data-reveal>
+		<?php echo $this->articles; ?>
+		<?php echo $this->modules; ?>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
 	
 <?php $this->endblock(); ?>
-
