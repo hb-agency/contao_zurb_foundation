@@ -161,11 +161,15 @@ class Foundation extends \Controller
     		$arrSmallSettings = deserialize($arrData['foundation_grid_small']);
     		$arrMediumSettings = deserialize($arrData['foundation_grid_medium']);
     		$arrLargeSettings = deserialize($arrData['foundation_grid_large']);
+    		$arrXLargeSettings = deserialize($arrData['foundation_grid_xlarge']);
+    		$arrXXLargeSettings = deserialize($arrData['foundation_grid_xxlarge']);
     				
     		//Small settings
     		$arrGridClasses = array_merge($this->parseGridSettings('small', $arrSmallSettings[0]), 
     		                              $this->parseGridSettings('medium', $arrMediumSettings[0]),
-    		                              $this->parseGridSettings('large', $arrLargeSettings[0]));
+    		                              $this->parseGridSettings('large', $arrLargeSettings[0]),
+    		                              $this->parseGridSettings('xlarge', $arrLargeSettings[0]),
+    		                              $this->parseGridSettings('xxlarge', $arrLargeSettings[0]));
         
         }
         

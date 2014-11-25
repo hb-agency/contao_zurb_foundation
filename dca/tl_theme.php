@@ -14,6 +14,7 @@
  * Palettes
  */
 $GLOBALS['TL_DCA']['tl_theme']['palettes']['default'] .= ';{foundation_legend:close},
+                                                            foundation_largegrids,
 															foundation_break_medium,
 															foundation_break_large,
 															foundation_break_xlarge,
@@ -56,4 +57,13 @@ $GLOBALS['TL_DCA']['tl_theme']['fields']['foundation_break_xxlarge'] = array
 	'options'                 => array('px', 'em'),
 	'eval'                    => array('includeBlankOption'=>true, 'rgxp'=>'digit_normal_inherit', 'maxlength' => 20, 'tl_class'=>'w50'),
 	'sql'                     => "varchar(64) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_theme']['fields']['foundation_largegrids'] = array
+(
+		'label'                   => &$GLOBALS['TL_LANG']['tl_theme']['foundation_largegrids'],
+		'exclude'       	      => true,
+		'inputType'     	      => 'checkbox',
+		'eval'                    => array('tl_class'=>'clr m12'),
+		'sql'                     => "char(1) NOT NULL default ''",
 );

@@ -115,6 +115,7 @@ class SCSS extends \Controller
     	$strKey .= 'xl-' . ($arrXLargeCustom['value'] ?: '') . ($arrXLargeCustom['unit'] ?: '');
     	$arrXXLargeCustom	= deserialize($objConfig->foundation_break_xxlarge, true);
     	$strKey .= 'xxl-' . ($arrXXLargeCustom['value'] ?: '') . ($arrXXLargeCustom['unit'] ?: '');
+    	$strKey .= $objConfig->foundation_largegrids;
     	
     	return $strKey=='m-l-xl-xxl-' ? 'default' : substr(md5($strKey), 0, 12);
     }
@@ -127,6 +128,7 @@ class SCSS extends \Controller
     protected static function applyConfig($objConfig, $strPath)
     {
     	self::changeBreakpoints($objConfig, $strPath);
+    	self::addLargeGrids($objConfig, $strPath);
     }
     
     /**
@@ -223,5 +225,24 @@ class SCSS extends \Controller
     	}
     	
     }
-
+    
+    /**
+     * Decide whether to add in the Foundation large grid classes
+     * @param \Contao\ThemeModel
+     * @param string
+     */
+    protected static function addLargeGrids($objConfig, $strPath)
+    { 
+        if($objConfig->foundation_largegrids)
+        {
+            $objFile = new \File($strPath . '/foundation/components/_grid.scss');
+			$strContent = $objFile->getContent();
+			
+			$strContent = str_replace('include-xl-html-grid-classes: false', 'include-xl-html-grid-classes: true', $strContent);
+	    	
+	    	$objFile->write($strContent);
+	    	$objFile->close();
+        }
+    }
+    
 }

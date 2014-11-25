@@ -59,7 +59,7 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_revealmodalwindow'] = '{
  * Subpalettes
  */
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['foundation_visibility'] = 'foundation_visibility_show,foundation_visibility_hide,foundation_visibility_orientation,foundation_visibility_touch';
-$GLOBALS['TL_DCA']['tl_module']['subpalettes']['foundation_grid'] = 'foundation_grid_small,foundation_grid_medium,foundation_grid_large';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['foundation_grid'] = 'foundation_grid_small,foundation_grid_medium,foundation_grid_large,foundation_grid_xlarge,foundation_grid_xxlarge';
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['foundation_block_grid'] = 'foundation_block_grid_settings';
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['foundation_nav_sticky'] = 'foundation_nav_sticky_on';
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['foundation_nav_includeLeft'] = 'foundation_nav_levelOffsetLeft,foundation_nav_showLevelLeft,foundation_nav_hardLimitLeft,foundation_nav_showProtectedLeft,foundation_nav_defineRootLeft,foundation_nav_navigationTplLeft';
@@ -709,6 +709,130 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['foundation_grid_large'] = array
     
 );
 
+$GLOBALS['TL_DCA']['tl_module']['fields']['foundation_grid_xlarge'] = array
+(
+	'label'         => &$GLOBALS['TL_LANG']['tl_module']['foundation_grid_xlarge'],
+	'exclude'       => true,
+	'inputType'     => 'multiColumnWizard',
+	'sql'           => "blob NULL",
+	'eval'			=> array(
+	    'tl_class'      => 'foundation_settings',
+	    'hideButtons'   => true,
+		'columnFields'	=> array(
+			'columns'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['columns'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('1','2','3','4','5','6','7','8','9','10','11','12'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'offset'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['offset'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('1','2','3','4','5','6','7','8','9','10','11','12'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'push'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['push'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('1','2','3','4','5','6','7','8','9','10','11','12'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'pull'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['pull'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('1','2','3','4','5','6','7','8','9','10','11','12'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'centering'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['centering'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('centered','uncentered'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20')
+			),
+			'end'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['end'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'checkbox',
+				'eval'              => array('tl_class'=> 'w20')
+			),
+		)
+	),
+    
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['foundation_grid_xxlarge'] = array
+(
+	'label'         => &$GLOBALS['TL_LANG']['tl_module']['foundation_grid_xxlarge'],
+	'exclude'       => true,
+	'inputType'     => 'multiColumnWizard',
+	'sql'           => "blob NULL",
+	'eval'			=> array(
+	    'tl_class'      => 'foundation_settings',
+	    'hideButtons'   => true,
+		'columnFields'	=> array(
+			'columns'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['columns'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('1','2','3','4','5','6','7','8','9','10','11','12'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'offset'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['offset'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('1','2','3','4','5','6','7','8','9','10','11','12'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'push'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['push'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('1','2','3','4','5','6','7','8','9','10','11','12'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'pull'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['pull'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('1','2','3','4','5','6','7','8','9','10','11','12'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'centering'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['centering'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('centered','uncentered'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20')
+			),
+			'end'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['end'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'checkbox',
+				'eval'              => array('tl_class'=> 'w20')
+			),
+		)
+	),
+    
+);
+
 $GLOBALS['TL_DCA']['tl_module']['fields']['foundation_block_grid_settings'] = array
 (
 	'label'         => &$GLOBALS['TL_LANG']['tl_module']['foundation_block_grid_settings'],
@@ -738,6 +862,22 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['foundation_block_grid_settings'] = ar
 			'large'	=> array
 			(
 				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['large'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('1','2','3','4','5','6','7','8','9','10','11','12'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'xlarge'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['xlarge'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('1','2','3','4','5','6','7','8','9','10','11','12'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'xxlarge'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['xxlarge'],
 				'exclude'       	=> true,
 				'inputType'     	=> 'select',
 				'options'	        => array('1','2','3','4','5','6','7','8','9','10','11','12'),

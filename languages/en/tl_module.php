@@ -46,6 +46,8 @@ $GLOBALS['TL_LANG']['tl_module']['foundation_grid']                    = array('
 $GLOBALS['TL_LANG']['tl_module']['foundation_grid_small']              = array('Small settings','Small screen width settings.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_grid_medium']             = array('Medium settings','Medium screen width settings.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_grid_large']              = array('Large settings','Large screen width settings.');
+$GLOBALS['TL_LANG']['tl_module']['foundation_grid_xlarge']             = array('X-Large settings','X-Large screen width settings.');
+$GLOBALS['TL_LANG']['tl_module']['foundation_grid_xxlarge']            = array('XX-Large settings','XX-Large screen width settings.');
 
 $GLOBALS['TL_LANG']['tl_module']['foundation_block_grid']              = array('Foundation block grid', 'Check to change the block grid settings of this element at various size screen widths for responsive sites. Foundation is based on a 12-column grid by default.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_block_grid_settings']     = array('Block grid column settings', 'Check to change the block grid settings of this element at various size screen widths for responsive sites. Foundation is based on a 12-column grid by default.');
@@ -72,6 +74,8 @@ $GLOBALS['TL_LANG']['tl_module']['end']                 = 'End';
 $GLOBALS['TL_LANG']['tl_module']['small']               = 'Small cols';
 $GLOBALS['TL_LANG']['tl_module']['medium']              = 'Medium cols';
 $GLOBALS['TL_LANG']['tl_module']['large']               = 'Large cols';
+$GLOBALS['TL_LANG']['tl_module']['xlarge']              = 'X-Large cols';
+$GLOBALS['TL_LANG']['tl_module']['xxlarge']             = 'XX-Large cols';
 $GLOBALS['TL_LANG']['tl_module']['foundation']['start'] = 'Start';
 $GLOBALS['TL_LANG']['tl_module']['foundation']['stop']  = 'End';
   
