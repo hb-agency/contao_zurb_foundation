@@ -20,6 +20,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_gri
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_block_grid';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_incarticle';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_incmodule';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'foundation_collapse';
 
 /**
  * Loop through all Content Elements and add Foundation to end of palette
@@ -36,7 +37,7 @@ foreach($GLOBALS['TL_DCA']['tl_content']['palettes'] as $element => $strPalette)
  * CE Palettes
  */
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_sidenav'] = '{type_legend},type,headline;{foundation_legend},foundation_pages;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_rowstart'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{foundation_legend:hide},foundation_visibility,foundation_block_grid,foundation_equalizer;';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_rowstart'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{foundation_legend:hide},foundation_visibility,foundation_block_grid,foundation_equalizer,foundation_collapse;';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_rowstop'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_genericstart'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{foundation_legend:hide},foundation_visibility,foundation_grid,foundation_block_grid,foundation_equalize;';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['foundation_genericstop'] = '{type_legend},type;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
@@ -55,6 +56,7 @@ $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_grid'] = 'foundation
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_block_grid'] = 'foundation_block_grid_settings';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_incarticle'] = 'foundation_article';
 $GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_incmodule'] = 'foundation_modules';
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['foundation_collapse'] = 'foundation_grid_collapse';
 
 /**
  * Fields
@@ -237,6 +239,15 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_block_grid'] = array
 $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_equalize'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_equalize'],
+    'exclude'                 => true,
+    'inputType'               => 'checkbox',
+	'eval'                    => array('submitOnChange'=>true),
+	'sql'                     => "char(1) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_collapse'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_content']['foundation_collapse'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
 	'eval'                    => array('submitOnChange'=>true),
@@ -715,4 +726,59 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_modules'] = array
 		)
 	),
     'sql'               => "blob NULL"
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['foundation_grid_collapse'] = array
+(
+	'label'         => &$GLOBALS['TL_LANG']['tl_content']['foundation_grid_collapse'],
+	'exclude'       => true,
+	'inputType'     => 'multiColumnWizard',
+	'sql'           => "blob NULL",
+	'eval'			=> array(
+	    'tl_class'      => 'foundation_settings',
+	    'hideButtons'   => true,
+		'columnFields'	=> array(
+			'small'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['small'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('collapse','uncollapse'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'medium'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['medium'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('collapse','uncollapse'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'large'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['large'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('collapse','uncollapse'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'x-large'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['xlarge'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('collapse','uncollapse'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+			'xx-large'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['xxlarge'],
+				'exclude'       	=> true,
+				'inputType'     	=> 'select',
+				'options'	        => array('collapse','uncollapse'),
+				'eval'              => array('includeBlankOption' => true, 'tl_class'=> 'w20 tl_select_small')
+			),
+		)
+	),
+    
 );

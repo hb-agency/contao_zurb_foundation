@@ -173,6 +173,18 @@ class Foundation extends \Controller
         
         }
         
+        //Collapse settings on row
+        if($arrData['foundation_collapse'])
+        {
+            $arrCollapseSettings = deserialize($arrData['foundation_grid_collapse']);
+            foreach($arrCollapseSettings[0] as $size => $strCollapse)
+    		{
+        		if(!empty($strCollapse)) {
+            		$arrGridClasses[] = $size . '-' . $strCollapse;
+        		}
+    		}
+        }
+        
 		return array_unique($arrGridClasses);
 	}
 	
