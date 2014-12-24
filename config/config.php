@@ -13,7 +13,7 @@
 /**
  * Foundation version
  */
-define('FOUNDATION', '5.2.2');
+define('FOUNDATION', '5.5.0');
  
 
 /**
@@ -125,4 +125,15 @@ $GLOBALS['FOUNDATION_JS'] = array
 	'foundationtopbar'			=> 'composer/vendor/zurb/foundation/js/foundation/foundation.topbar.js',
 );
 
+/**
+ * Purge jobs
+ */
+array_insert($GLOBALS['TL_PURGE']['folders'], 4, array
+(
+	'foundation' => array
+	(
+	    'callback' => array('HBAgency\Foundation\Automator', 'purgeFoundationCache'),
+        'affected' => array('assets/foundation'),
+    )
+));
 

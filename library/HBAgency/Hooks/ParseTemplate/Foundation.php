@@ -173,7 +173,7 @@ class Foundation extends \Controller
         
         }
         
-        //Collapse settings on row
+        //Collapse settings on row - Foundation 5.5.0+ Only
         if($arrData['foundation_collapse'])
         {
             $arrCollapseSettings = deserialize($arrData['foundation_grid_collapse']);
