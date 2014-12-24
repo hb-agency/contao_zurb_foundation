@@ -194,10 +194,10 @@ class Foundation extends \Controller
             $arrParsedGridClasses[] = $strSize . '-offset-' . $arrSettings['offset'];
         }
         if(!empty($arrSettings['push'])) {
-            $arrParsedGridClasses[] = $strSize . '-push-' . $arrSettings['offset'];
+            $arrParsedGridClasses[] = $strSize . '-push-' . $arrSettings['push'];
         }
         if(!empty($arrSettings['pull'])) {
-            $arrParsedGridClasses[] = $strSize . '-pull-' . $arrSettings['offset'];
+            $arrParsedGridClasses[] = $strSize . '-pull-' . $arrSettings['pull'];
         }
         if(!empty($arrSettings['centering'])) {
             $arrParsedGridClasses[] = $strSize . '-' . $arrSettings['centering'];
