@@ -14,3 +14,4 @@
  * Fields
  */ 
 $GLOBALS['TL_LANG']['tl_maintenance_jobs']['foundation'] = array('Purge Foundation CSS/SCSS', 'Removes the Foundation cache of CSS and SCSS files.');
+
