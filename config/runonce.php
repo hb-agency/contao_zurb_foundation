@@ -16,3 +16,4 @@
  
  //Run the installer/upgrader
  \HBAgency\Foundation\Installer::install();
+ 
