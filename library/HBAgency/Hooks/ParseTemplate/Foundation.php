@@ -168,8 +168,8 @@ class Foundation extends \Controller
     		$arrGridClasses = array_merge($this->parseGridSettings('small', $arrSmallSettings[0]), 
     		                              $this->parseGridSettings('medium', $arrMediumSettings[0]),
     		                              $this->parseGridSettings('large', $arrLargeSettings[0]),
-    		                              $this->parseGridSettings('xlarge', $arrLargeSettings[0]),
-    		                              $this->parseGridSettings('xxlarge', $arrLargeSettings[0]));
+    		                              $this->parseGridSettings('xlarge', $arrXLargeSettings[0]),
+    		                              $this->parseGridSettings('xxlarge', $arrXXLargeSettings[0]));
         
         }
         
