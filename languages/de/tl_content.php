@@ -29,7 +29,10 @@ $GLOBALS['TL_LANG']['tl_content']['foundation_block_grid_settings']     = array(
 
 $GLOBALS['TL_LANG']['tl_content']['foundation_flexvideo']               = array('Video iframe Quelle', 'Geben Sie die Quelle für das Video im iframe an. Es kann eine Youtube (www.youtube.com/embed/xxxxxxxxx) or Vimeo (player.vimeo.com/video/xxxxxxxxx) URL sein.');   
 $GLOBALS['TL_LANG']['tl_content']['foundation_equalize']                = array('Gleiche Höhe', 'Wenn dieses Element ein Kindelement einer Zeile ist, wird bei der Wahl dieser Option, alle Elemente dieser Zeile mit einer gleichen Höhe angezeigt.');            
-$GLOBALS['TL_LANG']['tl_content']['foundation_equalizer']               = array('Gleiche Höhe für Kind Elemente', 'Bei der Wahl dieser Option, wird den Kindelementen in der Zeile erlaubt, die Höge mit den anderen Elementen abzugleichen.');            
+$GLOBALS['TL_LANG']['tl_content']['foundation_equalizer']               = array('Gleiche Höhe für Kind Elemente', 'Bei der Wahl dieser Option, wird den Kindelementen in der Zeile erlaubt, die Höge mit den anderen Elementen abzugleichen.');
+$GLOBALS['TL_LANG']['tl_content']['foundation_collapse']                = array('Umbruch Kind Spalten', 'Bei der Wahl dieser Option, können Sie die Stegbreite für dem Umbruch der Kind Elemente einstellen.');
+$GLOBALS['TL_LANG']['tl_content']['foundation_grid_collapse']           = array('Umbruch Einstellungen', 'Stellen Sie die Stegbreite für den Umbruch der Kindelemente ein');
+
 $GLOBALS['TL_LANG']['tl_content']['foundation_size_small']              = array('Kleine Größe','Kleine Größe für dieses Bild.');
 $GLOBALS['TL_LANG']['tl_content']['foundation_size_medium']             = array('Medium Größe','Medium Größe für dieses Bild.');
 $GLOBALS['TL_LANG']['tl_content']['foundation_size_large']              = array('Große Größe','Große Größe für dieses Bild.');
