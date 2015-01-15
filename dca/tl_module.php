@@ -32,11 +32,11 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'useImage';
  * Palettes
  */
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['foundationnav_topbar'] = '{title_legend},name,headline,type;{foundationconfig_legend},foundation_nav_title,foundation_nav_menuicon,foundation_nav_fixed,foundation_nav_containtogrid,foundation_nav_clickable,foundation_nav_sticky;{foundationleft_legend},foundation_nav_includeLeft;{foundationright_legend},foundation_nav_includeRight;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['foundationnav_topbar'] = '{title_legend},name,headline,type;{foundationconfig_legend},foundation_nav_title,foundation_nav_menuicon,foundation_nav_fixed,foundation_nav_containtogrid,foundation_nav_clickable,foundation_nav_sticky;{foundationleft_legend},foundation_nav_includeLeft;{foundationright_legend},foundation_nav_includeRight;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_offcanvas'] = '{title_legend},name,headline,type;{foundationconfig_legend},foundation_offcanvas_side,foundation_modules;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_offcanvas'] = '{title_legend},name,headline,type;{foundationconfig_legend},foundation_offcanvas_side,foundation_modules;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_tabbar'] = '{title_legend},name,type;{foundationconfig_legend},foundation_tabbar_title,foundation_tabbar_title_side;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_tabbar'] = '{title_legend},name,type;{foundationconfig_legend},foundation_tabbar_title,foundation_tabbar_title_side;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 
 /**
