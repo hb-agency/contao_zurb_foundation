@@ -55,13 +55,9 @@ class TabBar extends Contao_Module
 		}
 		
 		//Check for custom template first!
-		if ($this->customTpl != '')
+		if ($this->customTpl == '')
 		{
-			$this->strTemplate = $this->customTpl;
-		}
-		else
-		{
-    		$this->strTemplate = 'mod_foundation_tabbar_' . $this->foundation_tabbar_title_side;
+			$this->strTemplate = 'mod_foundation_tabbar_' . $this->foundation_tabbar_title_side;
 		}
 		
 		return parent::generate();
