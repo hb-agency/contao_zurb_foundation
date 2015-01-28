@@ -50,8 +50,9 @@ array_insert($GLOBALS['FE_MOD']['application'], 5, array
 
 array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
 (
-	'foundationnav_topbar' => '\HBAgency\Module\Foundation\NavTopBar',
-	'foundation_tabbar' => '\HBAgency\Module\Foundation\TabBar'
+	'foundationnav_topbar'  => '\HBAgency\Module\Foundation\NavTopBar',
+	'foundation_tabbar'     => '\HBAgency\Module\Foundation\TabBar',
+	'foundation_iconbar'    => '\HBAgency\Module\Foundation\IconBar',
 ));
 
 

@@ -58,6 +58,7 @@ TemplateLoader::addFiles(array
 	
 	//Modules
 	'mod_foundation_topbar' 	    => 'system/modules/zurb_foundation/templates/modules',
+	'mod_foundation_iconbar' 	    => 'system/modules/zurb_foundation/templates/modules',
 	'mod_foundation_offcanvas' 	    => 'system/modules/zurb_foundation/templates/modules',
 	'mod_foundation_tabbar_left' 	=> 'system/modules/zurb_foundation/templates/modules',
 	'mod_foundation_tabbar_right' 	=> 'system/modules/zurb_foundation/templates/modules',

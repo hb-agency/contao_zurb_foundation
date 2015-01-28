@@ -31,3 +31,22 @@
 .zf_container .multicolumnwizard .zf_columns .tl_select {
     width: 200px;
 }
+.zf_container .multicolumnwizard .zf_filepicker a.tl_submit {
+    white-space: nowrap; margin-top: 1px;
+}
+.zf_container .multicolumnwizard .zf_filepicker .selector_container {
+    display: table-row;
+}
+.zf_container .multicolumnwizard .zf_filepicker .selector_container ul,
+.zf_container .multicolumnwizard .zf_filepicker .selector_container p {
+    display: table-cell; padding: 0px; vertical-align: top;
+}
+.zf_container .multicolumnwizard .zf_filepicker .selector_container img {
+    max-width:20px; max-height: 20px; 
+}
+.zf_container .multicolumnwizard .zf_iconclass .tl_select {
+    width: 100px;
+}
+.zf_container .multicolumnwizard .zf_smalltext .tl_text {
+    width: 100px;
+}

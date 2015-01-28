@@ -61,6 +61,7 @@ $GLOBALS['TL_LANG']['tl_module']['foundation_modules']                 = array('
 $GLOBALS['TL_LANG']['tl_module']['foundation_button']                  = array('Button label','Modal dialog button label.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_incarticle']              = array('Include article','Include article in Reveal Modal Window.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_incmodule']               = array('Include module','Include module in Reveal Modal Window.');
+$GLOBALS['TL_LANG']['tl_module']['foundation_icons']                   = array('Icon settings','Add Icons to the icon bar. If adding your own, SVG are preferred. If you are including the Foundation Icons CSS, you can simply select the icon class needed.');
  
 /**
  * Reference
@@ -78,7 +79,12 @@ $GLOBALS['TL_LANG']['tl_module']['xlarge']              = 'X-Large cols';
 $GLOBALS['TL_LANG']['tl_module']['xxlarge']             = 'XX-Large cols';
 $GLOBALS['TL_LANG']['tl_module']['foundation']['start'] = 'Start';
 $GLOBALS['TL_LANG']['tl_module']['foundation']['stop']  = 'End';
-  
+$GLOBALS['TL_LANG']['tl_module']['iconfile']            = 'Icon file';
+$GLOBALS['TL_LANG']['tl_module']['iconclass']           = 'Icon class';
+$GLOBALS['TL_LANG']['tl_module']['iconclass_custom']    = 'Custom icon class';
+$GLOBALS['TL_LANG']['tl_module']['icon_label']          = 'Icon label';
+$GLOBALS['TL_LANG']['tl_module']['icon_href']           = 'Icon link';
+
 /**
  * Legends
  */

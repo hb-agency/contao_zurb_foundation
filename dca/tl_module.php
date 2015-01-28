@@ -10,6 +10,7 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
  
+\Controller::loadDataContainer('tl_content');
 \System::loadLanguageFile('foundation');
 \System::loadLanguageFile('tl_content');
 
@@ -37,6 +38,8 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['foundationnav_topbar'] = '{title_le
 $GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_offcanvas'] = '{title_legend},name,headline,type;{foundationconfig_legend},foundation_offcanvas_side,foundation_modules;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_tabbar'] = '{title_legend},name,type;{foundationconfig_legend},foundation_tabbar_title,foundation_tabbar_title_side;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+
+$GLOBALS['TL_DCA']['tl_module']['palettes']['foundation_iconbar'] = '{title_legend},name,type;{foundationconfig_legend},foundation_icons;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 
 /**
@@ -132,7 +135,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['foundation_equalize'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['foundation_equalize'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
-	'eval'                    => array(),
+	'eval'                    => array('submitOnChange'=>true),
 	'sql'                     => "char(1) NOT NULL default ''"
 );
 
@@ -888,7 +891,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['foundation_block_grid_settings'] = ar
     
 );
 
-
 $GLOBALS['TL_DCA']['tl_module']['fields']['foundation_modules'] = array
 (
 	'label'         => &$GLOBALS['TL_LANG']['tl_module']['foundation_modules'],
@@ -905,6 +907,54 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['foundation_modules'] = array
 				'options_callback'	=> array('\HBAgency\Backend\FoundationModule','getAllModules'),
 				'eval'              => array('chosen' => true, 'tl_class'=>'zf_module')
 			)
+		)
+	),
+    'sql'               => "blob NULL"
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['foundation_icons'] = array
+(
+	'label'         => &$GLOBALS['TL_LANG']['tl_module']['foundation_icons'],
+	'exclude'       => true,
+	'inputType'     => 'multiColumnWizard',
+	'eval'			=> array(
+	    'tl_class'      => 'zf_container clr',
+		'columnFields'	=> array(
+			'iconfile'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['iconfile'],
+				'inputType'     	=> 'fileTree',
+				'eval'              => array('filesOnly'=>true, 'fieldType'=>'radio', 'tl_class'=>'zf_filepicker')
+			),
+			'iconclass'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['iconclass'],
+				'inputType'     	=> 'select',
+				'options'           => &$GLOBALS['TL_LANG']['FOUNDATION']['ICONS'],
+				'eval'              => array('includeBlankOption'=> true, 'tl_class'=>'zf_iconclass', 'chosen'=> false)
+			),
+			'iconclass_custom'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['iconclass_custom'],
+				'inputType'     	=> 'text',
+				'eval'              => array('tl_class'=>'zf_smalltext')
+			),
+			'icon_label'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['icon_label'],
+				'inputType'     	=> 'text',
+				'eval'              => array('tl_class'=>'zf_smalltext', 'maxlength'=>12)
+			),
+			'icon_href'	=> array
+			(
+				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['icon_href'],
+				'inputType'     	=> 'text',
+				'eval'              => array('tl_class'=>'zf_smalltext', 'rgxp'=>'url', 'decodeEntities'=>true, 'mandatory'=>true),
+				'wizard' => array
+    			(
+    				array('tl_content', 'pagePicker')
+    			),
+			),
 		)
 	),
     'sql'               => "blob NULL"
