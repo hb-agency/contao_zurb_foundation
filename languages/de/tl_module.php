@@ -61,7 +61,8 @@ $GLOBALS['TL_LANG']['tl_module']['foundation_modules']                 = array('
 $GLOBALS['TL_LANG']['tl_module']['foundation_button']                  = array('Button Label','Modal Dialog Button Label.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_incarticle']              = array('Artikel einbeziehen','Artikel im Reveal Modal Fenster einbeziehen.');
 $GLOBALS['TL_LANG']['tl_module']['foundation_incmodule']               = array('Modul einbeziehen','Modul im Reveal Modal Fenster einbeziehen.');
- 
+$GLOBALS['TL_LANG']['tl_module']['foundation_icons']                   = array('Icon Einstellungen','Fügen Sie ein Icons zur Icon Leiste hinzu. Wenn Sie eigene verwenden wollen, bevorzugen Sie SVG. Wenn Sie das Foundation Icons CSS inkludieren, können Sie ganz einfach die entsprechende Icon Klasse wählen, die Sie benötigen.');
+
 /**
  * Reference
  */
@@ -78,6 +79,11 @@ $GLOBALS['TL_LANG']['tl_module']['xlarge']              = 'X-Large cols';
 $GLOBALS['TL_LANG']['tl_module']['xxlarge']             = 'XX-Large cols';
 $GLOBALS['TL_LANG']['tl_module']['foundation']['start'] = 'Start';
 $GLOBALS['TL_LANG']['tl_module']['foundation']['stop']  = 'End';
+$GLOBALS['TL_LANG']['tl_module']['iconfile']            = 'Icon Datei';
+$GLOBALS['TL_LANG']['tl_module']['iconclass']           = 'Icon Klasse';
+$GLOBALS['TL_LANG']['tl_module']['iconclass_custom']    = 'Individuelle Icon Klasse';
+$GLOBALS['TL_LANG']['tl_module']['icon_label']          = 'Icon Label';
+$GLOBALS['TL_LANG']['tl_module']['icon_href']           = 'Icon Link';
   
 /**
  * Legends
