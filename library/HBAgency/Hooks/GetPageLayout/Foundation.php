@@ -47,7 +47,7 @@ class Foundation extends \Controller
 		
 	    array_insert($GLOBALS['TL_JAVASCRIPT'], 0, array
         (
-        	$objCombiner->getCombinedFile() . "|static"
+        	$objCombiner->getCombinedFile('') . "|static"
         ));
 		
 		//Load in Foundation CSS by Theme
