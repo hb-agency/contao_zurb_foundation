@@ -80,28 +80,16 @@ class InterchangeImageSingle extends Zurb_Foundation
 	    $arrSmallSize   = deserialize($this->foundation_size_small);
 	    $arrMediumSize  = deserialize($this->foundation_size_medium);
 	    $arrLargeSize   = deserialize($this->foundation_size_large);
+	    $arrXLargeSize  = deserialize($this->foundation_size_xlarge);
+	    $arrXXLargeSize = deserialize($this->foundation_size_xxlarge);
 	    
-	    $this->Template->smallSrc  = TL_ASSETS_URL . \Image::get($this->singleSRC, $arrSmallSize[0], $arrSmallSize[1], $arrSmallSize[2]);
-	    $this->Template->mediumSrc = TL_ASSETS_URL . \Image::get($this->singleSRC, $arrMediumSize[0], $arrMediumSize[1], $arrMediumSize[2]);
-	    $this->Template->largeSrc  = TL_ASSETS_URL . \Image::get($this->singleSRC, $arrLargeSize[0], $arrLargeSize[1], $arrLargeSize[2]);
+	    $this->Template->smallSrc    = TL_ASSETS_URL . \Image::get($this->singleSRC, $arrSmallSize[0], $arrSmallSize[1], $arrSmallSize[2]);
+	    $this->Template->mediumSrc   = TL_ASSETS_URL . \Image::get($this->singleSRC, $arrMediumSize[0], $arrMediumSize[1], $arrMediumSize[2]);
+	    $this->Template->largeSrc    = TL_ASSETS_URL . \Image::get($this->singleSRC, $arrLargeSize[0], $arrLargeSize[1], $arrLargeSize[2]);
+	    $this->Template->xlargeSrc   = TL_ASSETS_URL . \Image::get($this->singleSRC, $arrXLargeSize[0], $arrXLargeSize[1], $arrXLargeSize[2]);
+	    $this->Template->xxlargeSrc  = TL_ASSETS_URL . \Image::get($this->singleSRC, $arrXXLargeSize[0], $arrXXLargeSize[1], $arrXXLargeSize[2]);
 	
 		$this->addImageToTemplate($this->Template, $this->arrData);
 	}
-	
-	/**
-	 * Get the path to the resized image
-	 */
-	protected static function getResponsiveImage($arrSize, $strSrc)
-	{
-	    $varImagePath = null;
-	    
-	    if($arrSize[0] > 0 || $arrSize[1] > 0)
-	    {
-    	    $varImagePath = \Image::get($strSrc, $arrSize[0], $arrSize[1], $arrSize[3]);
-	    }
-	    
-	    return $varImagePath;
-	}
+
 }
-
-
