@@ -62,7 +62,7 @@ class Foundation extends \Controller
     		
     	    array_insert($GLOBALS['TL_JAVASCRIPT'], 0, array
             (
-            	$objCombiner->getCombinedFile('') . "|static|async"
+            	$objCombiner->getCombinedFile('') . "|static" . ($GLOBALS['FOUNDATION_CONFIG']['async'] ? "|async" : "")
             ));
         }
 		
