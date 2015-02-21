@@ -127,6 +127,14 @@ $GLOBALS['FOUNDATION_JS'] = array
 );
 
 /**
+ * Foundation configuration
+ */
+$GLOBALS['FOUNDATION_CONFIG'] = array
+(
+    'async' => false,  
+);
+
+/**
  * Purge jobs
  */
 array_insert($GLOBALS['TL_PURGE']['folders'], 4, array
