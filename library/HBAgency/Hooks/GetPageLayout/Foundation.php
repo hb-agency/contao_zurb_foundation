@@ -45,7 +45,7 @@ class Foundation extends \Controller
     		{
     			array_insert($GLOBALS['TL_JAVASCRIPT'], $i, array
                 (
-                	$strFile. "|static" . ($GLOBALS['FOUNDATION_CONFIG']['async'] ? "|async" : "")
+                	$strFile. "|static"
                 ));
                 $i++;
     		}
@@ -62,7 +62,7 @@ class Foundation extends \Controller
     		
     	    array_insert($GLOBALS['TL_JAVASCRIPT'], 0, array
             (
-            	$objCombiner->getCombinedFile('') . "|static" . ($GLOBALS['FOUNDATION_CONFIG']['async'] ? "|async" : "")
+            	$objCombiner->getCombinedFile('') . "|static"
             ));
         }
 		
@@ -72,11 +72,7 @@ class Foundation extends \Controller
         	SCSS::compile($objLayout->getRelated('pid')) . "|screen|static"
         ));
         
-        //Load the foundation trigger script
-        array_insert($GLOBALS['TL_JAVASCRIPT'], 9999999, array
-        (
-        	"system/modules/zurb_foundation/assets/js/foundation.js|static" . ($GLOBALS['FOUNDATION_CONFIG']['async'] ? "|async" : "")
-        ));
+        $objLayout->script .= "\n" . "<script>(function($) { $(document).foundation(); })(jQuery);</script>";
 
 	}
 }
