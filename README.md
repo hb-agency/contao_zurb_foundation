@@ -1,4 +1,4 @@
-zurb_foundation
+This repository has been abandoned
 ===============
 
-A set of tools for Contao Open Source CMS to utilize the Foundation responsive framework.
+Please see the new repository at https://github.com/RhymeDigital/contao_zurb_foundation
