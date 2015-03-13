@@ -9,11 +9,9 @@
  * @link       http://www.hbagency.com
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
-
-
-//Purge the Foundation cache
-\HBAgency\Foundation\Automator::purgeFoundationCache();
-
-//Run the installer/upgrader
-\HBAgency\Foundation\Installer::install();
+ 
+/**
+ * Fields
+ */ 
+$GLOBALS['TL_LANG']['tl_maintenance_jobs']['foundation'] = array('Entfernen der Foundation CSS/SCSS', 'Entfernen Sie den Cache von Foundation der CSS und SCSS Dateien.');
 

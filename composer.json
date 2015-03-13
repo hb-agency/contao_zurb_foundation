@@ -20,7 +20,7 @@
         "contao-legacy/namespaceclassloader": ">=1.0.1",
         "contao-legacy/haste": ">=4.0.0,<5.0-dev",
         "menatwork/contao-multicolumnwizard": ">=3.2.0,<3.3-dev",
-        "zurb/foundation": ">=5.2.1,<5.5-dev",
+        "zurb/foundation": ">=5.5.0,<5.6-dev",
         "jalle19/php-yui-compressor": ">=dev-master",
         "tedivm/jshrink": ">=1.0.0,<1.1-dev",
         "components/jquery": ">=2.1.0,<2.2-dev",

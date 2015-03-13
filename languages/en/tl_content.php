@@ -31,7 +31,9 @@ $GLOBALS['TL_LANG']['tl_content']['foundation_block_grid_settings']     = array(
 
 $GLOBALS['TL_LANG']['tl_content']['foundation_flexvideo']               = array('Video iframe source', 'Enter in the iframe source for this video. It can be a Youtube (www.youtube.com/embed/xxxxxxxxx) or Vimeo (player.vimeo.com/video/xxxxxxxxx) URL.');   
 $GLOBALS['TL_LANG']['tl_content']['foundation_equalize']                = array('Equalize height', 'If this element is the child of a row, checking this will force the element to equalize its height with other elements in the row.');            
-$GLOBALS['TL_LANG']['tl_content']['foundation_equalizer']               = array('Equalize height of child elements', 'Checking this will allow child elements to equalize their height with other elements in the row.');     
+$GLOBALS['TL_LANG']['tl_content']['foundation_equalizer']               = array('Equalize height of child elements', 'Checking this will allow child elements to equalize their height with other elements in the row.');
+$GLOBALS['TL_LANG']['tl_content']['foundation_collapse']                = array('Collapse child columns', 'Checking this will allow you to select collapse options for the gutters of the child columns.');
+$GLOBALS['TL_LANG']['tl_content']['foundation_grid_collapse']           = array('Collapse settings', 'Set the gutter width collapse settings for child elements.');
 $GLOBALS['TL_LANG']['tl_content']['foundation_size_small']              = array('Small size','Small sizing for this image.');
 $GLOBALS['TL_LANG']['tl_content']['foundation_size_medium']             = array('Medium size','Medium sizing for this image.');
 $GLOBALS['TL_LANG']['tl_content']['foundation_size_large']              = array('Large size','Large sizing for this image.');

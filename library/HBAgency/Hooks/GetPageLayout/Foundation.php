@@ -37,18 +37,34 @@ class Foundation extends \Controller
 	 */
 	public function run($objPage, &$objLayout, $objPageRegular)
 	{
-		//Load up our Required Foundation JS into a Combiner
-		$objCombiner = new \Combiner();
-		
-		foreach($GLOBALS['FOUNDATION_JS'] as $strFile)
+		// Do not combine the files in debug mode
+		if (\Config::get('debugMode'))
 		{
-			$objCombiner->add($strFile);
+            $i=0;
+    		foreach($GLOBALS['FOUNDATION_JS'] as $strFile)
+    		{
+    			array_insert($GLOBALS['TL_JAVASCRIPT'], $i, array
+                (
+                	$strFile. "|static"
+                ));
+                $i++;
+    		}
 		}
-		
-	    array_insert($GLOBALS['TL_JAVASCRIPT'], 0, array
-        (
-        	$objCombiner->getCombinedFile() . "|static"
-        ));
+		else
+		{    	
+    		//Load up our Required Foundation JS into a Combiner
+    		$objCombiner = new \Combiner();
+    		
+    		foreach($GLOBALS['FOUNDATION_JS'] as $strFile)
+    		{
+    			$objCombiner->add($strFile);
+    		}
+    		
+    	    array_insert($GLOBALS['TL_JAVASCRIPT'], 0, array
+            (
+            	$objCombiner->getCombinedFile('') . "|static"
+            ));
+        }
 		
 		//Load in Foundation CSS by Theme
 		array_insert($GLOBALS['TL_CSS'], 0, array

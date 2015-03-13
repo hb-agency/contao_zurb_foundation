@@ -1,0 +1,14 @@
+<?php $this->extend('block_unsearchable'); ?>
+<?php $this->block('content'); ?>
+<div class="icon-bar <?php echo $this->count; ?>-up">
+<?php foreach($this->icons as $icon): ?>
+    <a href="<?php echo $icon['href']; ?>" class="item<?php echo $icon['class']; ?>">
+    <?php if($icon['hasImage']): ?>
+        <img src="<?php echo $icon['img']; ?>">
+    <?php else: ?>
+        <i class="<?php echo $icon['iconclass']; ?>"></i>
+    <?php endif; ?>
+    </a>
+<?php endforeach; ?>
+</div>
+<?php $this->endblock(); ?>
