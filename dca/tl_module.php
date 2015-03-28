@@ -3,10 +3,10 @@
 /**
  * Zurb Foundation integration for Contao Open Source CMS
  *
- * Copyright (C) 2014 HB Agency
+ * Copyright (C) 2015 Rhyme Digital
  *
  * @package    Zurb_Foundation
- * @link       http://www.hbagency.com
+ * @link       http://rhyme.digital
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
  
@@ -904,7 +904,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['foundation_modules'] = array
 				'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['module'],
 				'exclude'       	=> true,
 				'inputType'     	=> 'select',
-				'options_callback'	=> array('\HBAgency\Backend\FoundationModule','getAllModules'),
+				'options_callback'	=> array('\Rhyme\Backend\FoundationModule','getAllModules'),
 				'eval'              => array('chosen' => true, 'tl_class'=>'zf_module')
 			)
 		)
@@ -973,7 +973,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['cteAlias'] = array
 								'label'         	=> &$GLOBALS['TL_LANG']['tl_module']['article'],
 								'exclude'       	=> true,
 								'inputType'     	=> 'select',
-								'options_callback'	=> array('\HBAgency\Backend\FoundationModule','getAllArticles'),
+								'options_callback'	=> array('\Rhyme\Backend\FoundationModule','getAllArticles'),
 								'eval'              => array('chosen' => true, 'tl_class'=>'zf_module')
 						)
 				)
