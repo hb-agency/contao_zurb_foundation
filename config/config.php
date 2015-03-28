@@ -3,10 +3,10 @@
 /**
  * Zurb Foundation integration for Contao Open Source CMS
  *
- * Copyright (C) 2014 HB Agency
+ * Copyright (C) 2015 Rhyme Digital
  *
  * @package    Zurb_Foundation
- * @link       http://www.hbagency.com
+ * @link       http://rhyme.digital
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
  
@@ -21,17 +21,17 @@ define('FOUNDATION', '5.2.2');
  */
 
 $GLOBALS['TL_CTE']['foundation'] = array(
-	'foundation_sidenav'					=> 'HBAgency\ContentElement\Foundation\SideNav',
-	'foundation_rowstart'					=> 'HBAgency\ContentElement\Foundation\RowStart',
-	'foundation_rowstop'					=> 'HBAgency\ContentElement\Foundation\RowStop',
-	'foundation_genericstart'				=> 'HBAgency\ContentElement\Foundation\GenericStart',
-	'foundation_genericstop'				=> 'HBAgency\ContentElement\Foundation\GenericStop',
-	'foundation_orbitstart'					=> 'HBAgency\ContentElement\Foundation\OrbitStart',
-	'foundation_orbitstop'					=> 'HBAgency\ContentElement\Foundation\OrbitStop',
-	'foundation_flexvideo'					=> 'HBAgency\ContentElement\Foundation\FlexVideo',
-	'foundation_interchangesingle'			=> 'HBAgency\ContentElement\Foundation\InterchangeImageSingle',
-	'foundation_revealmodalwindow'          => 'HBAgency\ContentElement\Foundation\RevealModalWindow',
-    'foundation_tabs'	                    => 'HBAgency\ContentElement\Foundation\Tabs',
+	'foundation_sidenav'					=> 'Rhyme\ContentElement\Foundation\SideNav',
+	'foundation_rowstart'					=> 'Rhyme\ContentElement\Foundation\RowStart',
+	'foundation_rowstop'					=> 'Rhyme\ContentElement\Foundation\RowStop',
+	'foundation_genericstart'				=> 'Rhyme\ContentElement\Foundation\GenericStart',
+	'foundation_genericstop'				=> 'Rhyme\ContentElement\Foundation\GenericStop',
+	'foundation_orbitstart'					=> 'Rhyme\ContentElement\Foundation\OrbitStart',
+	'foundation_orbitstop'					=> 'Rhyme\ContentElement\Foundation\OrbitStop',
+	'foundation_flexvideo'					=> 'Rhyme\ContentElement\Foundation\FlexVideo',
+	'foundation_interchangesingle'			=> 'Rhyme\ContentElement\Foundation\InterchangeImageSingle',
+	'foundation_revealmodalwindow'          => 'Rhyme\ContentElement\Foundation\RevealModalWindow',
+    'foundation_tabs'	                    => 'Rhyme\ContentElement\Foundation\Tabs',
 );
 
 /**
@@ -40,18 +40,18 @@ $GLOBALS['TL_CTE']['foundation'] = array(
 
 array_insert($GLOBALS['FE_MOD']['application'], 4, array
 (
-	'foundation_offcanvas' => '\HBAgency\Module\Foundation\OffCanvas'
+	'foundation_offcanvas' => '\Rhyme\Module\Foundation\OffCanvas'
 ));
 
 array_insert($GLOBALS['FE_MOD']['application'], 5, array
 (
-	'foundation_revealmodalwindow' => '\HBAgency\Module\Foundation\RevealModalWindow'
+	'foundation_revealmodalwindow' => '\Rhyme\Module\Foundation\RevealModalWindow'
 ));
 
 array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
 (
-	'foundationnav_topbar' => '\HBAgency\Module\Foundation\NavTopBar',
-	'foundation_tabbar' => '\HBAgency\Module\Foundation\TabBar'
+	'foundationnav_topbar' => '\Rhyme\Module\Foundation\NavTopBar',
+	'foundation_tabbar' => '\Rhyme\Module\Foundation\TabBar'
 ));
 
 
@@ -61,19 +61,19 @@ array_insert($GLOBALS['FE_MOD']['navigationMenu'], 8, array
  */
 array_insert($GLOBALS['TL_FFL'], 20, array
 (
-	'foundation_rowstart'           => 'HBAgency\FormField\Foundation\RowStart',
-	'foundation_rowstop'			=> 'HBAgency\FormField\Foundation\RowStop',
-	'foundation_genericstart'		=> 'HBAgency\FormField\Foundation\GenericStart',
-	'foundation_genericstop'		=> 'HBAgency\FormField\Foundation\GenericStop',
+	'foundation_rowstart'           => 'Rhyme\FormField\Foundation\RowStart',
+	'foundation_rowstop'			=> 'Rhyme\FormField\Foundation\RowStop',
+	'foundation_genericstart'		=> 'Rhyme\FormField\Foundation\GenericStart',
+	'foundation_genericstop'		=> 'Rhyme\FormField\Foundation\GenericStop',
 ));
 
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['parseTemplate'][] 		= array('HBAgency\Hooks\ParseTemplate\Foundation', 'run');
-$GLOBALS['TL_HOOKS']['getPageLayout'][] 		= array('HBAgency\Hooks\GetPageLayout\Foundation', 'run');
-$GLOBALS['TL_HOOKS']['getCombinedFile'][] 		= array('HBAgency\Hooks\GetCombinedFile\Foundation', 'run');
-//$GLOBALS['TL_HOOKS']['getAttributesFromDca'][]  = array('HBAgency\Hooks\StoreTabTitles\Foundation', 'run');
+$GLOBALS['TL_HOOKS']['parseTemplate'][] 		= array('Rhyme\Hooks\ParseTemplate\Foundation', 'run');
+$GLOBALS['TL_HOOKS']['getPageLayout'][] 		= array('Rhyme\Hooks\GetPageLayout\Foundation', 'run');
+$GLOBALS['TL_HOOKS']['getCombinedFile'][] 		= array('Rhyme\Hooks\GetCombinedFile\Foundation', 'run');
+//$GLOBALS['TL_HOOKS']['getAttributesFromDca'][]  = array('Rhyme\Hooks\StoreTabTitles\Foundation', 'run');
 
 
 /**

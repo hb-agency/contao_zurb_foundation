@@ -1,14 +1,14 @@
 <?php
 
 /**
-* Zurb Foundation integration for Contao Open Source CMS
-*
-* Copyright (C) 2014 HB Agency
-*
-* @package    Zurb_Foundation
-* @link       http://www.hbagency.com
-* @license    http://opensource.org/licenses/lgpl-3.0.html
-*/
+ * Zurb Foundation integration for Contao Open Source CMS
+ *
+ * Copyright (C) 2015 Rhyme Digital
+ *
+ * @package    Zurb_Foundation
+ * @link       http://rhyme.digital
+ * @license    http://opensource.org/licenses/lgpl-3.0.html
+ */
 
 \System::loadLanguageFile('foundation');
 
@@ -77,7 +77,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_tabs_content'] = array
 		'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['foundation_tabs_content'],
 		'exclude'       => false,
 		'inputType'     => 'multiColumnWizard',
-		'save_callback' => array('\HBAgency\Backend\FoundationContent', 'setTabTitle'),
+		'save_callback' => array('\Rhyme\Backend\FoundationContent', 'setTabTitle'),
 		'eval'			=> array
 		(
 				'tl_class'      => 'zf_container clr',
@@ -88,7 +88,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_tabs_content'] = array
 								'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['article'],
 								'exclude'       	=> true,
 								'inputType'     	=> 'select',
-								'options_callback'	=> array('\HBAgency\Backend\FoundationContent','getArticles'),
+								'options_callback'	=> array('\Rhyme\Backend\FoundationContent','getArticles'),
 								'eval'              => array('chosen' => true, 'tl_class'=>'zf_article'),
 						),
 						'title'     => array
@@ -687,7 +687,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['foundation_article'] = array
 								'label'         	=> &$GLOBALS['TL_LANG']['tl_content']['article'],
 								'exclude'       	=> true,
 								'inputType'     	=> 'select',
-								'options_callback'	=> array('\HBAgency\Backend\FoundationContent','getArticles'),
+								'options_callback'	=> array('\Rhyme\Backend\FoundationContent','getArticles'),
 								'eval'              => array('chosen' => true, 'tl_class'=>'zf_article')
 						)
 				)
