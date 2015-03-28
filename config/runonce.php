@@ -3,17 +3,17 @@
 /**
  * Zurb Foundation integration for Contao Open Source CMS
  *
- * Copyright (C) 2014 HB Agency
+ * Copyright (C) 2015 Rhyme Digital
  *
  * @package    Zurb_Foundation
- * @link       http://www.hbagency.com
+ * @link       http://rhyme.digital
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
 
 
 //Purge the Foundation cache
-\HBAgency\Foundation\Automator::purgeFoundationCache();
+\Rhyme\Foundation\Automator::purgeFoundationCache();
 
 //Run the installer/upgrader
-\HBAgency\Foundation\Installer::install();
+\Rhyme\Foundation\Installer::install();
 

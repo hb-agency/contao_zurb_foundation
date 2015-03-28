@@ -1,5 +1,5 @@
 {
-    "name": "hb-agency/contao_zurb_foundation",
+    "name": "rhymedigital/contao_zurb_foundation",
     "description": "A set of tools for Contao Open Source CMS to utilize the Foundation responsive framework",
     "keywords": [
     	"zurb", 
@@ -9,8 +9,8 @@
     "license": "LGPL-3.0+",
     "authors": [
         {
-            "name": "HB Agency",
-            "homepage": "http://www.hbagency.com"
+            "name": "Rhyme Digital",
+            "homepage": "http://rhyme.digital"
         }
     ],
     "require": {
@@ -28,8 +28,8 @@
     },
     "autoload": {
         "psr-0": {
-            "HBAgency\\": [
-                "system/modules/zurb_foundation/library/"
+            "Rhyme\\": [
+                "library/"
             ]
         }
     },
@@ -39,6 +39,9 @@
                 "": "system/modules/zurb_foundation"
             }
         }
+    },
+    "replace": {
+        "hb-agency/contao_zurb_foundation":"self.version"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
